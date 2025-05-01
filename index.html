@@ -1,0 +1,1163 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【逸探未来‧即刻出圈】AI应用创新赛 参与指南</title>
+    <!-- TailwindCSS via CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography,forms"></script>
+    <!-- Font Awesome via CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00B0B9;
+            --primary-light: #e6f7f8;
+            --primary-dark: #008a91;
+            --accent: #FF9800;
+            --accent-light: #fff4e6;
+            --accent-dark: #cc7a00;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+            gap: 1rem;
+        }
+        
+        .bento-card {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .bento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .primary-gradient {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+        }
+        
+        .accent-gradient {
+            background: linear-gradient(to right, var(--accent), var(--accent-dark));
+        }
+        
+        .primary-border {
+            border: 2px solid var(--primary);
+        }
+        
+        .accent-border {
+            border: 2px solid var(--accent);
+        }
+
+        .hover-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hover-effect:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        
+        .hover-effect:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        
+        .accent-hover-effect:after {
+            background-color: var(--accent);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+        }
+        
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            margin-top: 6px;
+        }
+        
+        .timeline-item:not(:last-child):after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 18px;
+            bottom: -12px;
+            width: 2px;
+            background-color: #e2e8f0;
+        }
+        
+        .dark .timeline-item:not(:last-child):after {
+            background-color: #4a5568;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+
+        /* Progress bar for scroll */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--primary);
+            width: 0%;
+            z-index: 100;
+            transition: width 0.2s ease;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00B0B9',
+                        'primary-light': '#e6f7f8',
+                        'primary-dark': '#008a91',
+                        accent: '#FF9800',
+                        'accent-light': '#fff4e6',
+                        'accent-dark': '#cc7a00',
+                    }
+                }
+            },
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Scroll progress bar -->
+    <div class="progress-bar" id="scrollProgress"></div>
+
+    <!-- Header Section -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-sm transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <h1 class="text-xl sm:text-2xl font-bold text-primary">
+                <i class="fas fa-rocket mr-2"></i>
+                逸刻AI应用创新赛
+            </h1>
+            <nav class="hidden md:flex space-x-6 mx-auto">
+                <a href="#overview" class="hover-effect text-gray-700 dark:text-gray-300 font-medium hover:text-primary dark:hover:text-primary">大赛概览</a>
+                <a href="#tracks" class="hover-effect text-gray-700 dark:text-gray-300 font-medium hover:text-primary dark:hover:text-primary">赛道详情</a>
+                <a href="#how-to-participate" class="hover-effect text-gray-700 dark:text-gray-300 font-medium hover:text-primary dark:hover:text-primary">参与方式</a>
+                <a href="#judging" class="hover-effect text-gray-700 dark:text-gray-300 font-medium hover:text-primary dark:hover:text-primary">评选标准</a>
+                <a href="#prizes" class="hover-effect text-gray-700 dark:text-gray-300 font-medium hover:text-primary dark:hover:text-primary">奖励荣誉</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-primary-light dark:bg-gray-800 py-20 px-4 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="bento-grid md:grid-rows-2 min-h-[500px]">
+                <!-- Main title area -->
+                <div class="col-span-12 md:col-span-8 md:row-span-2 bento-card p-8 md:p-12 lg:p-16 animate-fade-in delay-100 flex flex-col justify-center bg-white dark:bg-gray-800">
+                    <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full mb-4 font-medium text-sm">2025年度"最美逸刻人"主题系列活动</span>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900 dark:text-white">
+                        <span class="text-primary">逸探未来</span> <br>
+                        <span class="text-accent">即刻出圈</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl">
+                        欢迎参加逸刻AI应用创新赛！这是一个展示创意、学习新技能、共同成长的绝佳机会。让我们用AI点燃创新火花！
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-4">
+                        <a href="#tracks" class="bg-primary hover:bg-primary-dark text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200 shadow-md">
+                            <i class="fas fa-stream mr-2"></i> 浏览赛道
+                        </a>
+                        <a href="#how-to-participate" class="bg-white dark:bg-gray-700 text-primary dark:text-primary border-2 border-primary hover:bg-primary-light dark:hover:bg-primary/10 font-medium px-6 py-3 rounded-lg transition-colors duration-200 shadow-md">
+                            <i class="fas fa-paper-plane mr-2"></i> 参与方式
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Stats area -->
+                <div class="col-span-12 md:col-span-4 bento-card p-6 animate-fade-in delay-200 bg-white dark:bg-gray-800">
+                    <div class="h-full flex flex-col justify-center items-center">
+                        <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-calendar-alt text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-primary mb-2">截止日期</h3>
+                        <p class="text-lg text-gray-600 dark:text-gray-400 text-center">2025年5月30日</p>
+                    </div>
+                </div>
+                
+                <!-- Counter area -->
+                <div class="col-span-12 md:col-span-4 bento-card p-6 animate-fade-in delay-300 bg-accent-light dark:bg-accent/10">
+                    <div class="h-full flex flex-col justify-center items-center">
+                        <div class="w-12 h-12 rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-trophy text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-accent mb-2">奖项设置</h3>
+                        <p class="text-lg text-gray-600 dark:text-gray-400 text-center">每赛道11个奖项</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Participate Section -->
+    <section class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full mb-2 font-medium text-sm">为什么参加?</span>
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">参与的五大理由</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+            
+            <div class="bento-grid">
+                <div class="col-span-12 md:col-span-4 bento-card p-6 animate-fade-in delay-100">
+                    <div class="flex flex-col h-full">
+                        <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-lightbulb text-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">抓住机遇</h3>
+                        <p class="text-gray-600 dark:text-gray-400 flex-grow">体验AI前沿技术，提升个人竞争力，让你在技术浪潮中保持优势。</p>
+                    </div>
+                </div>
+                
+                <div class="col-span-12 md:col-span-4 bento-card p-6 animate-fade-in delay-200">
+                    <div class="flex flex-col h-full">
+                        <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-medal text-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">展现才华</h3>
+                        <p class="text-gray-600 dark:text-gray-400 flex-grow">分享你的创意和想法，让更多人看到你的才华与潜力，获得职业发展新机会。</p>
+                    </div>
+                </div>
+                
+                <div class="col-span-12 md:col-span-4 bento-card p-6 animate-fade-in delay-300">
+                    <div class="flex flex-col h-full">
+                        <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-cogs text-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">助力公司</h3>
+                        <p class="text-gray-600 dark:text-gray-400 flex-grow">为逸刻发展贡献力量，推动业务创新，成为公司AI转型的重要一员。</p>
+                    </div>
+                </div>
+                
+                <div class="col-span-12 md:col-span-6 bento-card p-6 animate-fade-in delay-400">
+                    <div class="flex flex-col h-full">
+                        <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-users text-xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">共同成长</h3>
+                        <p class="text-gray-600 dark:text-gray-400 flex-grow">与同事交流学习，营造"比学赶超"氛围，在互相启发中共同进步。</p>
+                    </div>
+                </div>
+                
+                <div class="col-span-12 md:col-span-6 bento-card bg-accent-light dark:bg-accent/10 p-6 animate-fade-in delay-500">
+                    <div class="flex flex-col h-full">
+                        <div class="w-12 h-12 rounded-full bg-white dark:bg-gray-700 flex items-center justify-center mb-4">
+                            <i class="fas fa-trophy text-xl text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">赢取荣誉</h3>
+                        <p class="text-gray-700 dark:text-gray-300 flex-grow">丰厚奖金与"最美逸刻人"称号等你拿！优秀作品更有机会推送至百联集团参赛！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contest Overview Section -->
+    <section id="overview" class="py-20 px-4 bg-gray-100 dark:bg-gray-800/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full mb-2 font-medium text-sm">认识大赛</span>
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">大赛概览</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+            
+            <div class="bento-grid">
+                <div class="col-span-12 md:col-span-7 bento-card p-8 animate-fade-in">
+                    <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+                        <i class="fas fa-info-circle mr-2 text-primary"></i>活动信息
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-user-check text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2 text-gray-900 dark:text-white">参赛对象</h4>
+                                <p class="text-gray-600 dark:text-gray-400">所有逸刻员工 (含总部、门店及合伙人)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-bullseye text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2 text-gray-900 dark:text-white">活动主题</h4>
+                                <p class="text-gray-600 dark:text-gray-400">逸探未来‧即刻出圈</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-comment-dots text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2 text-gray-900 dark:text-white">活动目标</h4>
+                                <p class="text-gray-600 dark:text-gray-400">提高员工AI应用能力，激发创新思维，推动业务发展</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-span-12 md:col-span-5 bento-card p-8 animate-fade-in delay-200">
+                    <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">
+                        <i class="fas fa-calendar mr-2 text-primary"></i>关键时间点
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="timeline-item pb-4">
+                            <h4 class="font-semibold text-lg text-gray-900 dark:text-white">投稿阶段</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mt-2">2025年4月3日 至 2025年5月30日</p>
+                        </div>
+                        
+                        <div class="timeline-item pb-4">
+                            <h4 class="font-semibold text-lg text-gray-900 dark:text-white">评分公示</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mt-2">2025年6月</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h4 class="font-semibold text-lg text-gray-900 dark:text-white">颁奖时间</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mt-2">2025年7月</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contest Tracks Section -->
+    <section id="tracks" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full mb-2 font-medium text-sm">比赛内容</span>
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">四大赛道详解</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+                <p class="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mt-4">
+                    每个赛道都有独特的挑战和机会，选择你最感兴趣或擅长的领域参与！
+                </p>
+            </div>
+            
+            <div class="bento-grid">
+                <!-- Track 1 -->
+                <div class="col-span-12 md:col-span-6 bento-card overflow-hidden animate-fade-in delay-100">
+                    <div class="h-full flex flex-col">
+                        <div class="bg-primary p-6 text-white">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-pen-fancy text-xl"></i>
+                                </div>
+                                <div>
+                                    <span class="text-white/80 text-sm font-medium">赛道 01</span>
+                                    <h3 class="text-xl font-bold">AI 内容创作</h3>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 flex-grow flex flex-col">
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                利用AI提升文字表达效率和创意。围绕六个指定主题创作1000字左右的文本内容。最终评选获得第 1 名、2 名的作品将被推送至百联集团参赛。
+                            </p>
+                            
+                            <div class="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg mb-4">
+                                <h4 class="font-semibold mb-2 text-gray-900 dark:text-white">应用案例:</h4>
+                                <ul class="text-gray-600 dark:text-gray-400 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                        <span>让AI为新品快速生成吸引人的朋友圈或外卖平台推荐语</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                        <span>让AI辅助撰写内部文化推文初稿，再结合实例润色</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <a href="track1.html" class="inline-block bg-white text-primary border-2 border-primary hover:bg-primary-light dark:bg-gray-800 dark:hover:bg-primary/10 px-4 py-2 rounded-lg transition-colors">
+                                    <i class="fas fa-arrow-right mr-2"></i> 了解详情
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Track 2 -->
+                <div class="col-span-12 md:col-span-6 bento-card overflow-hidden animate-fade-in delay-200">
+                    <div class="h-full flex flex-col">
+                        <div class="bg-accent p-6 text-white">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-palette text-xl"></i>
+                                </div>
+                                <div>
+                                    <span class="text-white/80 text-sm font-medium">赛道 02</span>
+                                    <h3 class="text-xl font-bold">AI 视觉设计</h3>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 flex-grow flex flex-col">
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                运用AI快速实现视觉创意。设计逸刻主题的周边产品，提交源文件，分辨率不低于300dpi。
+                            </p>
+                            
+                            <div class="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg mb-4">
+                                <h4 class="font-semibold mb-2 text-gray-900 dark:text-white">应用案例:</h4>
+                                <ul class="text-gray-600 dark:text-gray-400 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                        <span>使用AI为环保袋生成多种风格的设计概念图</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                        <span>利用AI生成节日主题贴纸形象，快速投入制作</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <a href="track2.html" class="inline-block bg-white text-accent border-2 border-accent hover:bg-accent-light dark:bg-gray-800 dark:hover:bg-accent/10 px-4 py-2 rounded-lg transition-colors">
+                                    <i class="fas fa-arrow-right mr-2"></i> 了解详情
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Track 3 -->
+                <div class="col-span-12 md:col-span-6 bento-card overflow-hidden animate-fade-in delay-300">
+                    <div class="h-full flex flex-col">
+                        <div class="bg-primary p-6 text-white">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-video text-xl"></i>
+                                </div>
+                                <div>
+                                    <span class="text-white/80 text-sm font-medium">赛道 03</span>
+                                    <h3 class="text-xl font-bold">AI 影音生成</h3>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 flex-grow flex flex-col">
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                借助AI让影音创作更简单生动。围绕指定主题创作1-3分钟的视频，16:9横屏，1080P+。
+                            </p>
+                            
+                            <div class="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg mb-4">
+                                <h4 class="font-semibold mb-2 text-gray-900 dark:text-white">应用案例:</h4>
+                                <ul class="text-gray-600 dark:text-gray-400 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                        <span>使用AI将文字脚本转为带配音的教学视频</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-primary mt-1 mr-2"></i>
+                                        <span>用AI配音、动态影集效果快速制作员工故事短片</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <a href="track3.html" class="inline-block bg-white text-primary border-2 border-primary hover:bg-primary-light dark:bg-gray-800 dark:hover:bg-primary/10 px-4 py-2 rounded-lg transition-colors">
+                                    <i class="fas fa-arrow-right mr-2"></i> 了解详情
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Track 4 -->
+                <div class="col-span-12 md:col-span-6 bento-card overflow-hidden animate-fade-in delay-400">
+                    <div class="h-full flex flex-col">
+                        <div class="bg-accent p-6 text-white">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mr-4">
+                                    <i class="fas fa-code text-xl"></i>
+                                </div>
+                                <div>
+                                    <span class="text-white/80 text-sm font-medium">赛道 04</span>
+                                    <h3 class="text-xl font-bold">AI 编程与自动化</h3>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6 flex-grow flex flex-col">
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">
+                                让AI成为你的效率加速器。识别重复耗时任务，利用AI辅助或自动化工具/脚本解决。
+                            </p>
+                            
+                            <div class="bg-gray-50 dark:bg-gray-800/50 p-4 rounded-lg mb-4">
+                                <h4 class="font-semibold mb-2 text-gray-900 dark:text-white">应用案例:</h4>
+                                <ul class="text-gray-600 dark:text-gray-400 space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                        <span>用RPA或AI辅助写脚本，自动生成周报</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-accent mt-1 mr-2"></i>
+                                        <span>训练简单的AI问答机器人，自动回复常见问题</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="mt-auto">
+                                <a href="track4.html" class="inline-block bg-white text-accent border-2 border-accent hover:bg-accent-light dark:bg-gray-800 dark:hover:bg-accent/10 px-4 py-2 rounded-lg transition-colors">
+                                    <i class="fas fa-arrow-right mr-2"></i> 了解详情
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Participate Section -->
+    <section id="how-to-participate" class="py-20 px-4 bg-gray-100 dark:bg-gray-800/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full mb-2 font-medium text-sm">参与步骤</span>
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">如何参与？</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+            
+            <div class="bento-grid">
+                <div class="col-span-12 bento-card p-8 animate-fade-in">
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <!-- Steps area -->
+                        <div class="md:w-2/3">
+                            <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">
+                                <i class="fas fa-list-ol mr-2 text-primary"></i> 参与流程
+                            </h3>
+                            
+                            <div class="space-y-8">
+                                <div class="flex">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                                        1
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-semibold text-lg text-gray-900 dark:text-white mb-1">选择赛道</h4>
+                                        <p class="text-gray-600 dark:text-gray-400">
+                                            挑选一个或多个你感兴趣的领域。可以根据你的技能、兴趣选择。
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                                        2
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-semibold text-lg text-gray-900 dark:text-white mb-1">创作项目</h4>
+                                        <p class="text-gray-600 dark:text-gray-400">
+                                            运用AI工具辅助完成你的作品。发挥创意，尝试不同的AI工具。
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                                        3
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-semibold text-lg text-gray-900 dark:text-white mb-1">记录过程</h4>
+                                        <p class="text-gray-600 dark:text-gray-400">
+                                            <span class="bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-300 px-2 py-0.5 rounded font-medium">保留"AI创作生成记录"</span> 
+                                            (用了什么工具，怎么用的简述或截图)。
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                                        4
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-semibold text-lg text-gray-900 dark:text-white mb-1">准备作品</h4>
+                                        <p class="text-gray-600 dark:text-gray-400">
+                                            整理最终文件，起一个10字以内的标题。确保作品符合参赛要求。
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex">
+                                    <div class="flex-shrink-0 w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-bold">
+                                        5
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="font-semibold text-lg text-gray-900 dark:text-white mb-1">邮件提交</h4>
+                                        <p class="text-gray-600 dark:text-gray-400 mb-2">
+                                            按照规定格式发送邮件提交作品和AI创作记录。
+                                        </p>
+                                        <div class="bg-white dark:bg-gray-800 p-3 rounded text-sm text-gray-700 dark:text-gray-300">
+                                            <strong>邮件地址：</strong> gh@egocvs.com<br>
+                                            <strong>邮件标题格式：</strong> 【2025年度"最美逸刻人"主题系列活动】+部门/门店+姓名+作品标题
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Important notes -->
+                        <div class="md:w-1/3">
+                            <div class="bg-accent-light dark:bg-accent/10 p-6 rounded-xl">
+                                <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white flex items-center">
+                                    <i class="fas fa-exclamation-circle text-accent mr-2"></i> 重要提示
+                                </h3>
+                                
+                                <div class="space-y-4">
+                                    <div class="flex items-start">
+                                        <i class="fas fa-calendar-check text-accent mr-3 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900 dark:text-white">截止日期</h4>
+                                            <p class="text-gray-700 dark:text-gray-300">2025年5月30日前提交</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <i class="fas fa-file-alt text-accent mr-3 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900 dark:text-white">附件要求</h4>
+                                            <p class="text-gray-700 dark:text-gray-300">最终作品 + AI创作生成记录</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <i class="fas fa-mobile-alt text-accent mr-3 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900 dark:text-white">联系方式</h4>
+                                            <p class="text-gray-700 dark:text-gray-300">邮件正文留下手机号码</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-start">
+                                        <i class="fas fa-lightbulb text-accent mr-3 mt-1"></i>
+                                        <div>
+                                            <h4 class="font-semibold text-gray-900 dark:text-white">提前准备</h4>
+                                            <p class="text-gray-700 dark:text-gray-300">建议提前2-3周开始准备</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules & Reminders Section -->
+    <section id="rules" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full mb-2 font-medium text-sm">参赛须知</span>
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">重要规则与提醒</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+            
+            <div class="bento-grid">
+                <div class="col-span-12 lg:col-span-6 bento-card p-8 animate-fade-in">
+                    <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
+                        <i class="fas fa-check-circle text-primary mr-2"></i>参赛规则
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-file-alt text-primary"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold text-gray-900 dark:text-white">原创为本</h4>
+                                <p class="text-gray-600 dark:text-gray-400">核心创意和主要工作须为本人完成，严禁抄袭他人作品。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-robot text-primary"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold text-gray-900 dark:text-white">AI是工具</h4>
+                                <p class="text-gray-600 dark:text-gray-400">合理使用AI辅助创作，而非完全替代。让AI成为你的助手，而不是你作品的全部。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-copyright text-primary"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold text-gray-900 dark:text-white">尊重版权</h4>
+                                <p class="text-gray-600 dark:text-gray-400">确保作品中所用素材无版权纠纷。即使是AI生成的内容，也要注意相关素材的版权问题。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-span-12 lg:col-span-6 bento-card p-8 animate-fade-in delay-200">
+                    <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
+                        <i class="fas fa-exclamation-triangle text-accent mr-2"></i>重要提醒
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-list-ol text-accent"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold text-gray-900 dark:text-white">数量限制</h4>
+                                <p class="text-gray-600 dark:text-gray-400">每人每个赛道限提交一份作品。集中精力打造一个高质量作品。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-shield-alt text-accent"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold text-gray-900 dark:text-white">内容合规</h4>
+                                <p class="text-gray-600 dark:text-gray-400">作品需符合公司价值观，不泄露敏感信息。确保你的创作积极向上、健康合规。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-history text-accent"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold text-accent">必须提交AI创作记录</h4>
+                                <p class="text-gray-600 dark:text-gray-400">提交作品时，<strong>务必附上"AI创作生成记录"</strong>。这是评委了解你创作过程的重要依据。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Judging Criteria Section -->
+    <section id="judging" class="py-20 px-4 bg-gray-100 dark:bg-gray-800/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full mb-2 font-medium text-sm">评判标准</span>
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">评选标准</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+            
+            <div class="bento-card p-8 animate-fade-in">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="flex items-center bg-primary-light dark:bg-primary/10 p-6 rounded-xl">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center bg-white dark:bg-gray-800 text-primary font-bold text-2xl mr-4">
+                                40%
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-900 dark:text-white">主题性 (Relevance)</h4>
+                                <p class="text-gray-700 dark:text-gray-300">内容与大赛主题的契合度，与公司文化的关联性</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center bg-accent-light dark:bg-accent/10 p-6 rounded-xl">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center bg-white dark:bg-gray-800 text-accent font-bold text-2xl mr-4">
+                                30%
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-900 dark:text-white">创意性 (Creativity)</h4>
+                                <p class="text-gray-700 dark:text-gray-300">作品的创新程度，巧妙运用AI的方式和独特性</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center bg-primary-light dark:bg-primary/10 p-6 rounded-xl">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center bg-white dark:bg-gray-800 text-primary font-bold text-2xl mr-4">
+                                15%
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-900 dark:text-white">艺术性 (Artistry)</h4>
+                                <p class="text-gray-700 dark:text-gray-300">作品的美感和表现力，视觉或听觉体验的质量</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center bg-accent-light dark:bg-accent/10 p-6 rounded-xl">
+                            <div class="w-16 h-16 rounded-full flex items-center justify-center bg-white dark:bg-gray-800 text-accent font-bold text-2xl mr-4">
+                                15%
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-900 dark:text-white">实用性 (Practicality)</h4>
+                                <p class="text-gray-700 dark:text-gray-300">作品在实际工作中的应用价值和解决实际问题的能力</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prizes Section -->
+    <section id="prizes" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full mb-2 font-medium text-sm">奖励计划</span>
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">奖励与荣誉</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+                <p class="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mt-4">
+                    四大赛道均设置丰厚奖项，等你来赢取！展现你的才华，收获荣誉与奖励。
+                </p>
+            </div>
+            
+            <div class="bento-grid">
+                <div class="col-span-12 md:col-span-3 bento-card p-6 animate-fade-in delay-100">
+                    <div class="text-center">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center mb-4">
+                            <i class="fas fa-award text-3xl text-yellow-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-1 text-gray-900 dark:text-white">一等奖</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">每赛道1名</p>
+                        <div class="text-lg font-bold text-primary mb-1">
+                            800-1000元
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400">+ 证书</p>
+                    </div>
+                </div>
+                
+                <div class="col-span-12 md:col-span-3 bento-card p-6 animate-fade-in delay-200">
+                    <div class="text-center">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center mb-4">
+                            <i class="fas fa-medal text-3xl text-gray-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-1 text-gray-900 dark:text-white">二等奖</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">每赛道2名</p>
+                        <div class="text-lg font-bold text-primary mb-1">
+                            500-800元
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400">+ 证书</p>
+                    </div>
+                </div>
+                
+                <div class="col-span-12 md:col-span-3 bento-card p-6 animate-fade-in delay-300">
+                    <div class="text-center">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mb-4">
+                            <i class="fas fa-star text-3xl text-orange-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-1 text-gray-900 dark:text-white">三等奖</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">每赛道3名</p>
+                        <div class="text-lg font-bold text-primary mb-1">
+                            300-600元
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400">+ 证书</p>
+                    </div>
+                </div>
+                
+                <div class="col-span-12 md:col-span-3 bento-card p-6 animate-fade-in delay-400">
+                    <div class="text-center">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center mb-4">
+                            <i class="fas fa-certificate text-3xl text-blue-500"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-1 text-gray-900 dark:text-white">入围奖</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">每赛道5名</p>
+                        <div class="text-lg font-bold text-primary mb-1">
+                            100-200元
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400">+ 证书</p>
+                    </div>
+                </div>
+                
+                <div class="col-span-12 bento-card p-6 bg-accent-light dark:bg-accent/10 animate-fade-in delay-500">
+                    <div class="text-center">
+                        <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">
+                            <i class="fas fa-level-up-alt mr-2 text-accent"></i> 额外机会
+                        </h3>
+                        <p class="text-lg text-gray-700 dark:text-gray-300">
+                            优秀作品更有机会推送至<span class="font-bold text-accent">百联集团参赛</span>，获得更大平台的展示机会！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started Tips Section -->
+    <section id="tips" class="py-20 px-4 bg-gray-100 dark:bg-gray-800/50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full mb-2 font-medium text-sm">新手指南</span>
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">AI入门小贴士</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mt-4"></div>
+            </div>
+            
+            <div class="bento-grid">
+                <div class="col-span-12 md:col-span-4 bento-card p-6 animate-fade-in delay-100">
+                    <div class="h-full flex flex-col">
+                        <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center text-primary text-lg mb-4">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-gray-900 dark:text-white">别害怕尝试</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
+                            很多AI工具比想象中简单，大胆尝试！失败也是学习的一部分，每次尝试都会让你更熟练。
+                        </p>
+                        <div class="bg-white dark:bg-gray-800 p-3 rounded text-gray-700 dark:text-gray-300 text-sm">
+                            <strong>提示:</strong> 从简单工具如豆包、元宝、Deepseek开始，逐步尝试更专业的工具。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-span-12 md:col-span-4 bento-card p-6 animate-fade-in delay-200">
+                    <div class="h-full flex flex-col">
+                        <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center text-primary text-lg mb-4">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-gray-900 dark:text-white">学写提示词</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
+                            清晰、具体的指令是关键，多试几次找感觉。提示词质量决定输出质量，学会给AI详细指令。
+                        </p>
+                        <div class="bg-white dark:bg-gray-800 p-3 rounded text-gray-700 dark:text-gray-300 text-sm">
+                            <strong>提示:</strong> 指定风格、长度、受众、格式等具体要求，会得到更好结果。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-span-12 md:col-span-4 bento-card p-6 animate-fade-in delay-300">
+                    <div class="h-full flex flex-col">
+                        <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center text-primary text-lg mb-4">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-gray-900 dark:text-white">反复迭代</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
+                            AI结果通常需要多次优化，不要期待一次就完美，持续调整改进你的提示和结果。
+                        </p>
+                        <div class="bg-white dark:bg-gray-800 p-3 rounded text-gray-700 dark:text-gray-300 text-sm">
+                            <strong>提示:</strong> 告诉AI哪部分需要改进，而不是完全重新生成。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-span-12 md:col-span-6 bento-card p-6 animate-fade-in delay-400">
+                    <div class="h-full flex flex-col">
+                        <div class="w-12 h-12 rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center text-accent text-lg mb-4">
+                            <i class="fas fa-gift"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-gray-900 dark:text-white">用免费工具</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
+                            网上有很多免费或试用版的AI工具，开始时可以利用这些工具练习和创作，无需立即投入资金。
+                        </p>
+                        <div class="bg-white dark:bg-gray-800 p-3 rounded text-gray-700 dark:text-gray-300 text-sm">
+                            <strong>免费工具推荐:</strong> Deepseek、通义千问Qwen、豆包等。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-span-12 md:col-span-6 bento-card p-6 animate-fade-in delay-500">
+                    <div class="h-full flex flex-col">
+                        <div class="w-12 h-12 rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center text-accent text-lg mb-4">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3 text-gray-900 dark:text-white">查找教程</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
+                            B站、知乎等平台有很多AI工具教程和文章，跟随教程学习会比自己摸索快得多。
+                        </p>
+                        <div class="bg-white dark:bg-gray-800 p-3 rounded text-gray-700 dark:text-gray-300 text-sm">
+                            <strong>搜索建议:</strong> "AI工具入门教程"、"如何写好提示词"、"AI辅助创意设计"等关键词。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action & Contact -->
+    <section id="contact" class="py-20 px-4 text-center">
+        <div class="max-w-7xl mx-auto">
+            <div class="bento-card p-8 md:p-12 animate-fade-in">
+                <div class="max-w-2xl mx-auto">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">还有疑问？马上行动！</h2>
+                    
+                    <p class="text-gray-600 dark:text-gray-400 mb-8">
+                        如有任何问题，请随时联系逸刻工会：
+                        <a href="mailto:gh@egocvs.com" class="text-primary hover:underline font-medium">gh@egocvs.com</a>
+                    </p>
+                    
+                    <p class="text-xl font-medium text-gray-800 dark:text-gray-200 mb-8">
+                        让我们一起，<span class="text-primary font-bold">逸探未来</span> · <span class="text-accent font-bold">即刻出圈！</span>
+                    </p>
+                    
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="#tracks" class="bg-primary hover:bg-primary-dark text-white font-bold py-3 px-8 rounded-lg shadow-md transition-colors">
+                            <i class="fas fa-stream mr-2"></i> 浏览赛道
+                        </a>
+                        <a href="#how-to-participate" class="bg-white dark:bg-gray-800 text-primary dark:text-primary border-2 border-primary hover:bg-primary-light dark:hover:bg-primary/10 font-bold py-3 px-8 rounded-lg transition-colors shadow-md">
+                            <i class="fas fa-paper-plane mr-2"></i> 立即参与
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="mt-10 py-12 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">逸刻AI应用创新赛</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        2025年度"最美逸刻人"主题系列活动
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        <i class="fas fa-envelope mr-2 text-primary"></i> gh@egocvs.com
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">比赛赛道</h3>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li><a href="track1.html" class="hover:text-primary">AI 内容创作</a></li>
+                        <li><a href="track2.html" class="hover:text-primary">AI 视觉设计</a></li>
+                        <li><a href="track3.html" class="hover:text-primary">AI 影音生成</a></li>
+                        <li><a href="track4.html" class="hover:text-primary">AI 编程与自动化</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">快速导航</h3>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li><a href="#overview" class="hover:text-primary">大赛概览</a></li>
+                        <li><a href="#tracks" class="hover:text-primary">赛道详情</a></li>
+                        <li><a href="#how-to-participate" class="hover:text-primary">参与方式</a></li>
+                        <li><a href="#prizes" class="hover:text-primary">奖励与荣誉</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-500 dark:text-gray-400">
+                <p>作者: AtelierQin</p>
+                <p class="mt-1">© 2025上海逸刻新零售网络科技有限公司工会委员会. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark/Light Mode Toggle Functionality
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+
+        // Check initial theme preference
+        const currentTheme = (() => {
+            if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+                return localStorage.getItem('theme');
+            }
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                return 'dark';
+            }
+            return 'light'; // Default to light
+        })();
+
+        // Apply the initial theme
+        if (currentTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+            themeToggleLightIcon.classList.add('hidden');
+            themeToggleDarkIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            themeToggleLightIcon.classList.remove('hidden');
+            themeToggleDarkIcon.classList.add('hidden');
+        }
+
+        // Add event listener for the toggle button
+        themeToggleBtn.addEventListener('click', () => {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            themeToggleLightIcon.classList.toggle('hidden', isDark);
+            themeToggleDarkIcon.classList.toggle('hidden', !isDark);
+        });
+
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercentage = (scrollTop / scrollHeight) * 100;
+            document.getElementById('scrollProgress').style.width = scrollPercentage + '%';
+        });
+        
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateItems = document.querySelectorAll('.animate-fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animateItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>

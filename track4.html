@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 编程与自动化 - 逸刻AI应用创新赛</title>
+    <!-- TailwindCSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome via CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00B0B9;
+            --primary-light: #e6f7f8;
+            --primary-dark: #008a91;
+            --accent: #FF9800;
+            --accent-light: #fff4e6;
+            --accent-dark: #cc7a00;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+            --bg-dark: #1a202c;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+            gap: 1rem;
+        }
+
+        .bento-card {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .primary-gradient {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+        }
+
+        .accent-gradient {
+            background: linear-gradient(to right, var(--accent), var(--accent-dark));
+        }
+
+        .primary-border {
+            border: 2px solid var(--primary);
+        }
+
+        .accent-border {
+            border: 2px solid var(--accent);
+        }
+
+        .hover-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hover-effect:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        .hover-effect:hover:after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .accent-hover-effect:after {
+            background-color: var(--accent);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            margin-top: 6px;
+        }
+
+        .timeline-item:not(:last-child):after {
+            content: "";
+            position: absolute;
+            left: 5px;
+            top: 18px;
+            bottom: -12px;
+            width: 2px;
+            background-color: #e2e8f0;
+        }
+
+        .dark .timeline-item:not(:last-child):after {
+            background-color: #4a5568;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+
+        /* Progress bar for scroll */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--accent);
+            width: 0%;
+            z-index: 100;
+            transition: width 0.2s ease;
+        }
+
+        /* Code samples */
+        .code-sample {
+            font-family: 'Courier New', monospace;
+            background-color: #1e1e3f;
+            color: #ffffff;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .code-header {
+            background-color: #2d2b55;
+            padding: 0.75rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .code-content {
+            padding: 1rem;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .code-comment {
+            color: #b362ff;
+        }
+
+        .code-keyword {
+            color: #ff9d00;
+        }
+
+        .code-string {
+            color: #a5ff90;
+        }
+
+        .code-function {
+            color: #9effff;
+        }
+
+        .code-variable {
+            color: #e1efff;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00B0B9',
+                        'primary-light': '#e6f7f8',
+                        'primary-dark': '#008a91',
+                        accent: '#FF9800',
+                        'accent-light': '#fff4e6',
+                        'accent-dark': '#cc7a00',
+                    }
+                }
+            },
+
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 transition-colors duration-300">
+    <!-- Scroll progress bar -->
+    <div class="progress-bar" id="scrollProgress"></div>
+
+    <!-- Header Section -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl sm:text-2xl font-bold text-accent">
+                <i class="fas fa-rocket mr-2"></i>
+                逸刻AI应用创新赛
+            </a>
+            <nav class="hidden md:flex space-x-6 mx-auto">
+                <a href="index.html" class="hover-effect text-gray-700 font-medium hover:text-accent">首页</a>
+                <a href="track1.html" class="hover-effect text-gray-700 font-medium hover:text-accent">内容创作</a>
+                <a href="track2.html" class="hover-effect text-gray-700 font-medium hover:text-accent">视觉设计</a>
+                <a href="track3.html" class="hover-effect text-gray-700 font-medium hover:text-accent">影音生成</a>
+                <a href="track4.html" class="text-accent font-medium border-b-2 border-accent">编程自动化</a>
+            </nav>
+            <div class="flex items-center space-x-3">
+                <a href="index.html#contact" class="hidden md:inline-block bg-accent hover:bg-accent-dark text-white px-4 py-2 rounded-lg transition-colors">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-accent-light dark:bg-accent/10 py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div class="md:pr-8 animate-fade-in delay-100">
+                    <span class="inline-block bg-accent/10 text-accent px-4 py-1 rounded-full mb-4 font-medium text-sm">赛道 04</span>
+                    <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+                        AI <span class="text-accent">编程与自动化</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+                        让AI成为你的效率加速器。识别重复耗时任务，利用AI辅助或自动化工具/脚本解决。无需专业编程背景也能参与，发挥创新思维，简化工作流程。
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#automation-methods" class="bg-accent hover:bg-accent-dark text-white font-medium px-6 py-3 rounded-lg transition-colors shadow-md">
+                            <i class="fas fa-lightbulb mr-2"></i>自动化方法
+                        </a>
+                        <a href="#tools" class="bg-white dark:bg-gray-800 text-accent border-2 border-accent hover:bg-accent-light dark:hover:bg-accent/10 font-medium px-6 py-3 rounded-lg transition-colors shadow-md">
+                            <i class="fas fa-tools mr-2"></i>推荐工具
+                        </a>
+                    </div>
+                </div>
+                <div class="relative animate-fade-in delay-200">
+                    <div class="bento-card p-8 relative overflow-hidden">
+                        <div class="mb-6">
+                            <img src="images/track-images/ai-programming.svg" alt="自动化脚本示例" class="w-full h-auto rounded-lg">
+                        </div>
+                        <div class="bento-card p-6 bg-white dark:bg-gray-800">
+                            <h2 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">AI辅助自动化</h2>
+                            <p class="text-gray-600 dark:text-gray-400 mb-4">利用AI技术自动处理重复工作，提高工作效率，减少人为错误，让你专注于更有创意和价值的任务。</p>
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-2 sm:space-y-0">
+                                <span class="bg-accent-light dark:bg-accent/20 text-accent px-3 py-1 rounded-md text-sm font-medium">编程与自动化</span>
+                                <span class="text-gray-500 dark:text-gray-400 text-sm">用户友好 / 实用价值</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <!-- Track Overview -->
+        <section class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">赛道概览</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+            </div>
+
+            <div class="bento-card p-8 animate-fade-in">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-code text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">赛道主题</h3>
+                        <p class="text-gray-600 dark:text-gray-400">识别重复耗时任务，利用AI辅助或脚本解决，例如数据处理、报表生成、信息整合、流程自动化等。</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-trophy text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">参赛目标</h3>
+                        <p class="text-gray-600 dark:text-gray-400">创建解决实际问题的AI辅助自动化方案，提高工作效率，节省时间，具有实际应用价值。</p>
+                    </div>
+
+                    <div class="text-center">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center mb-4">
+                            <i class="fas fa-check-circle text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">提交要求</h3>
+                        <p class="text-gray-600 dark:text-gray-400">提交项目说明文档、解决方案演示（视频或截图）、源代码（如有）以及AI创作流程记录。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Automation Methods -->
+        <section id="automation-methods" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">自动化方法与流程</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-4"></div>
+                <p class="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    以下是几种利用AI进行编程与自动化的方法，你可以选择最适合自己技能水平的方式参与创作。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-fade-in">
+                <!-- Method 1 -->
+                <div class="bento-card p-8 h-full">
+                    <div class="w-12 h-12 rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center text-accent text-xl mb-6">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">无代码自动化</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">
+                        使用现成的无代码平台（如Zapier、Make、n8n等平台服务，无需编程也能创建自动化工作流。
+                    </p>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">操作步骤:</h4>
+                            <ol class="text-sm text-gray-600 dark:text-gray-400 list-decimal ml-5 space-y-2">
+                                <li>识别需要自动化的工作流程</li>
+                                <li>选择适合的无代码平台</li>
+                                <li>创建触发器和自动化流程</li>
+                                <li>集成AI服务（如Deepseek、Qwen等）</li>
+                                <li>测试并优化自动化流程</li>
+                            </ol>
+                        </div>
+                        <div class="bg-accent-light dark:bg-accent/10 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">适合人群:</h4>
+                            <p class="text-gray-600 dark:text-gray-400">无编程经验的参赛者，适合创建基于已有工具的自动化流程，如自动客服回复、数据整合、消息通知等。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Method 2 -->
+                <div class="bento-card p-8 h-full">
+                    <div class="w-12 h-12 rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center text-accent text-xl mb-6">
+                        <i class="fas fa-code-branch"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">AI辅助编程</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">
+                        使用AI编程助手（如GitHub Copilot、Cursor等）生成代码，通过提供需求描述让AI帮助编写脚本或程序。
+                    </p>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">操作步骤:</h4>
+                            <ol class="text-sm text-gray-600 dark:text-gray-400 list-decimal ml-5 space-y-2">
+                                <li>明确需要解决的问题</li>
+                                <li>向AI描述所需功能</li>
+                                <li>审查并修改生成的代码</li>
+                                <li>分段测试功能实现</li>
+                                <li>完善错误处理和用户界面</li>
+                            </ol>
+                        </div>
+                        <div class="bg-accent-light dark:bg-accent/10 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">适合人群:</h4>
+                            <p class="text-gray-600 dark:text-gray-400">有基础编程知识但需要帮助的参赛者，适合创建自定义脚本、简单的数据处理工具或自动化应用程序。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Method 3 -->
+                <div class="bento-card p-8 h-full">
+                    <div class="w-12 h-12 rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center text-accent text-xl mb-6">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">AI智能体开发</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">
+                        构建具有自主学习和决策能力的AI智能体，通过任务分解、知识库构建和动态优化，实现复杂问题的自动化处理。
+                    </p>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">操作步骤:</h4>
+                            <ol class="text-sm text-gray-600 dark:text-gray-400 list-decimal ml-5 space-y-2">
+                                <li>定义任务目标和成功标准</li>
+                                <li>构建领域知识库和工具集</li>
+                                <li>设计自主决策机制</li>
+                                <li>实现任务分解与协作逻辑</li>
+                                <li>建立持续优化反馈系统</li>
+                            </ol>
+                        </div>
+                        <div class="bg-accent-light dark:bg-accent/10 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">适合人群:</h4>
+                            <p class="text-gray-600 dark:text-gray-400">具备基础编程能力，需处理复杂决策任务的参赛者，适合动态环境下的智能客服、数据分析、系统运维等场景。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <!-- Recommended Tools -->
+        <section id="tools" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">推荐编程与自动化工具</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-4"></div>
+                <p class="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    以下是一些能够帮助你高效完成自动化项目的工具，从无代码平台到AI编程助手，各种技能水平都能找到适合的解决方案。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
+                <!-- Tool 1: Trae -->
+                <div class="bento-card overflow-hidden h-full flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/40x40/8A2BE2/FFFFFF?text=T" alt="Trae Logo" class="w-10 h-10 rounded object-cover mr-4">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Trae</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                            强大的AI编程助手，提供代码生成、调试和优化功能，支持多种编程语言，可在IDE中实时协助开发者完成复杂任务。
+                        </p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">智能代码生成</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">多语言支持</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">实时协作功能</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                        <div class="flex justify-between items-center mb-1">
+                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <span class="text-accent">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">代码开发、自动化脚本、问题解决</p>
+                         <div class="mt-2">
+                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-2 py-0.5 rounded-full">免费使用</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool 2: Cursor -->
+                <div class="bento-card overflow-hidden h-full flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/40x40/2E8B57/FFFFFF?text=CU" alt="Cursor Logo" class="w-10 h-10 rounded object-cover mr-4">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Cursor</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                            专为AI辅助编程设计的代码编辑器，集成了强大的AI模型，可以理解整个代码库，提供智能代码补全、重构和解释功能。
+                        </p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">代码库理解能力</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">智能代码补全</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">自然语言交互</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                        <div class="flex justify-between items-center mb-1">
+                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <span class="text-accent">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">代码开发、项目重构、功能实现</p>
+                         <div class="mt-2">
+                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool 3: Windsurf -->
+                <div class="bento-card overflow-hidden h-full flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/40x40/00008B/FFFFFF?text=WS" alt="Windsurf Logo" class="w-10 h-10 rounded object-cover mr-4">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Windsurf</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                            创新的AI驱动自动化平台，通过自然语言指令创建和执行复杂工作流，无需编程知识即可实现跨应用程序的自动化流程。
+                        </p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">自然语言指令</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">无代码自动化</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">跨平台集成</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                        <div class="flex justify-between items-center mb-1">
+                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <span class="text-accent">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">工作流自动化、数据处理、跨平台集成</p>
+                         <div class="mt-2">
+                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool 4: Dify -->
+                <div class="bento-card overflow-hidden h-full flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/40x40/4A90E2/FFFFFF?text=DF" alt="Dify Logo" class="w-10 h-10 rounded object-cover mr-4">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Dify</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                            开源的大语言模型应用开发平台，融合后端即服务和LLMOps理念，提供直观的界面和强大的工具，快速搭建生产级AI应用。
+                        </p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">高质量RAG引擎</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">灵活的流程编排</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">多模型支持集成</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                        <div class="flex justify-between items-center mb-1">
+                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <span class="text-accent">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">AI应用开发、工作流自动化、数据处理</p>
+                         <div class="mt-2">
+                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool 5: VScode+cline -->
+                <div class="bento-card overflow-hidden h-full flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/40x40/007ACC/FFFFFF?text=VS" alt="VSCode + cline Logo" class="w-10 h-10 rounded object-cover mr-4">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">VScode+Cline</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                            Visual Studio Code与cline AI扩展的强大组合，为开发者提供智能代码生成、重构和优化建议，支持多种编程语言和框架。
+                        </p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">轻量级编辑器</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">AI代码辅助</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">丰富的扩展生态</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                        <div class="flex justify-between items-center mb-1">
+                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <span class="text-accent">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">代码开发、自动化脚本、项目管理</p>
+                         <div class="mt-2">
+                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-2 py-0.5 rounded-full">免费使用</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tool 6: Coze -->
+                <div class="bento-card overflow-hidden h-full flex flex-col">
+                    <div class="p-6 flex-grow">
+                        <div class="flex items-center mb-4">
+                            <img src="https://placehold.co/40x40/DC143C/FFFFFF?text=CZ" alt="Coze Logo" class="w-10 h-10 rounded object-cover mr-4">
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Coze</h3>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                            字节跳动推出的AI应用开发平台，无需复杂编程即可创建自动化工作流和AI应用，适合快速实现业务场景。
+                        </p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">可视化工作流设计</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">丰富的AI能力集成</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span class="text-gray-600 dark:text-gray-400">多平台部署能力</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                        <div class="flex justify-between items-center mb-1">
+                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <span class="text-accent">★★★★★</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm">企业自动化流程、智能客服、数据整合应用</p>
+                         <div class="mt-2">
+                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-2 py-0.5 rounded-full">免费使用</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Example Projects Section -->
+        <section id="examples" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">项目示例</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-4"></div>
+                <p class="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    以下是一些AI编程与自动化的项目示例，可以为你提供灵感和参考方向。无论是简单的工作流自动化还是复杂的智能应用，都有适合你技能水平的项目。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 animate-fade-in">
+                <!-- Example 1 -->
+                <div class="bento-card p-6">
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">
+                        <i class="fas fa-chart-bar text-accent mr-3"></i>智能周报生成器
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        自动从各种数据源（如邮件、工作管理工具、日历等）收集信息，使用AI总结和格式化成周报，节省员工撰写周报时间。
+                    </p>
+
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">技术实现:</h4>
+                        <ul class="text-gray-600 dark:text-gray-400 ml-6 list-disc space-y-1">
+                            <li>与邮箱、日历和项目管理工具API集成</li>
+                            <li>数据提取和结构化处理</li>
+                            <li>ChatGPT API生成自然语言总结</li>
+                            <li>自动邮件发送功能</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-2 sm:space-y-0">
+                        <div>
+                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-3 py-1 rounded-full">中级难度</span>
+                        </div>
+                        <div class="text-gray-500 dark:text-gray-400 text-sm flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-3">
+                            <span><i class="fas fa-clock mr-1"></i> 节省时间: 80%</span>
+                            <span><i class="fas fa-user-plus mr-1"></i> 应用广度: 高</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 2 -->
+                <div class="bento-card p-6">
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">
+                        <i class="fas fa-robot text-accent mr-3"></i>智能客服自动回复
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        基于AI的客服自动回复系统，能够分析客户问题并生成合适的回复，处理常见问题并将复杂问题分发给人工客服。
+                    </p>
+
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">技术实现:</h4>
+                        <ul class="text-gray-600 dark:text-gray-400 ml-6 list-disc space-y-1">
+                            <li>集成企业微信或其他通讯平台</li>
+                            <li>训练AI识别常见问题类型</li>
+                            <li>构建问答知识库与回复模板</li>
+                            <li>情感分析和自动升级机制</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-3 py-1 rounded-full">初级-中级</span>
+                        </div>
+                        <div class="text-gray-500 dark:text-gray-400 text-sm">
+                            <span class="mr-3"><i class="fas fa-clock mr-1"></i> 节省时间: 60%</span>
+                            <span><i class="fas fa-user-plus mr-1"></i> 应用广度: 高</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 3 -->
+                <div class="bento-card p-6">
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">
+                        <i class="fas fa-file-invoice text-accent mr-3"></i>数据处理与分析自动化
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        自动处理来自不同系统的数据（Excel、CSV等），进行清洗、整合和分析，生成可视化报表，简化数据处理工作。
+                    </p>
+
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">技术实现:</h4>
+                        <ul class="text-gray-600 dark:text-gray-400 ml-6 list-disc space-y-1">
+                            <li>自动数据提取和格式化</li>
+                            <li>使用pandas或Excel自动化处理数据</li>
+                            <li>AI辅助异常检测和数据清洗</li>
+                            <li>自动生成数据可视化报表</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-3 py-1 rounded-full">初级-高级</span>
+                        </div>
+                        <div class="text-gray-500 dark:text-gray-400 text-sm">
+                            <span class="mr-3"><i class="fas fa-clock mr-1"></i> 节省时间: 85%</span>
+                            <span><i class="fas fa-user-plus mr-1"></i> 应用广度: 中-高</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 4 -->
+                <div class="bento-card p-6">
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">
+                        <i class="fas fa-tasks text-accent mr-3"></i>文档自动分类与处理
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        使用AI分析收到的文档内容（如邮件附件、报表等），自动分类、归档并提取关键信息，建立易于检索的文档库。
+                    </p>
+
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">技术实现:</h4>
+                        <ul class="text-gray-600 dark:text-gray-400 ml-6 list-disc space-y-1">
+                            <li>OCR与文本提取技术</li>
+                            <li>AI文档分类算法</li>
+                            <li>关键信息抽取</li>
+                            <li>自动重命名和归档到相应位置</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-3 py-1 rounded-full">中级</span>
+                        </div>
+                        <div class="text-gray-500 dark:text-gray-400 text-sm">
+                            <span class="mr-3"><i class="fas fa-clock mr-1"></i> 节省时间: 75%</span>
+                            <span><i class="fas fa-user-plus mr-1"></i> 应用广度: 中</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 animate-fade-in delay-200">
+                <!-- Example 5 -->
+                <div class="bento-card p-6">
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">
+                        <i class="fas fa-calendar-check text-accent mr-3"></i>智能会议助手
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        自动记录和转录会议内容，使用AI生成会议纪要和行动项，并自动分发给相关人员，跟踪任务进度。
+                    </p>
+
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">技术实现:</h4>
+                        <ul class="text-gray-600 dark:text-gray-400 ml-6 list-disc space-y-1">
+                            <li>语音识别和转录技术</li>
+                            <li>AI文本摘要生成</li>
+                            <li>任务提取和分配系统</li>
+                            <li>与日历和项目管理工具集成</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-3 py-1 rounded-full">中级-高级</span>
+                        </div>
+                        <div class="text-gray-500 dark:text-gray-400 text-sm">
+                            <span class="mr-3"><i class="fas fa-clock mr-1"></i> 节省时间: 70%</span>
+                            <span><i class="fas fa-user-plus mr-1"></i> 应用广度: 高</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 6 -->
+                <div class="bento-card p-6">
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">
+                        <i class="fas fa-shopping-cart text-accent mr-3"></i>自动化库存管理
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        结合AI预测和自动化工作流，实现智能库存管理，自动监控库存水平，预测需求并触发补货流程。
+                    </p>
+
+                    <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mb-4">
+                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">技术实现:</h4>
+                        <ul class="text-gray-600 dark:text-gray-400 ml-6 list-disc space-y-1">
+                            <li>与库存系统API集成</li>
+                            <li>AI预测算法分析销售趋势</li>
+                            <li>自动触发补货工作流</li>
+                            <li>异常库存变动报警机制</li>
+                        </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-3 py-1 rounded-full">高级</span>
+                        </div>
+                        <div class="text-gray-500 dark:text-gray-400 text-sm">
+                            <span class="mr-3"><i class="fas fa-clock mr-1"></i> 节省时间: 90%</span>
+                            <span><i class="fas fa-user-plus mr-1"></i> 应用广度: 中</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tips for Success -->
+        <section id="tips" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">编程自动化小贴士</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+            </div>
+
+            <div class="bento-card p-8 animate-fade-in">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
+                            <i class="fas fa-check-circle text-accent mr-3"></i>自动化最佳实践
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">从小处着手</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">选择一个明确且范围有限的问题开始，验证成功后再扩展范围或功能。避免一开始就尝试自动化过于复杂的流程。</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">选择正确的工具</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">根据项目复杂度和你的技能水平选择合适的工具。无需编程技能的参赛者可以选择无代码平台，而非专业开发者也能用AI辅助编程。</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">优先自动化重复任务</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">寻找频繁执行且步骤固定的任务，这些通常是自动化的最佳候选者，能带来立竿见影的效果。</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">构建反馈机制</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">确保自动化流程包含错误处理和通知机制，让系统能够汇报问题并在必要时允许人工介入。</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">记录与文档</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">详细记录自动化流程的工作方式、依赖关系和配置，这对未来的维护和优化至关重要。</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
+                            <i class="fas fa-times-circle text-red-500 mr-3"></i>常见自动化误区
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">自动化一切</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">并非所有任务都值得自动化，特别是那些很少执行或步骤不固定的任务。评估自动化的投入产出比很重要。</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">忽视异常处理</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">自动化流程需要考虑各种异常情况和边界条件，否则可能在意外情况下失败或产生错误结果。</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">过度复杂化</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">保持解决方案简单明了，避免不必要的功能和复杂性，这样更容易维护和理解。</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">忽视用户体验</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">即使是自动化工具，也需要考虑用户体验。确保界面直观、操作简单，提供清晰的指引。</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times text-red-500 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-semibold text-gray-900 dark:text-white">不考虑安全性</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">特别是处理敏感数据或与外部系统交互时，务必考虑安全性问题，如数据加密、访问控制等。</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-10 bg-accent-light dark:bg-accent/10 p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white text-center">AI编程技巧</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg text-gray-700 dark:text-gray-300">
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">与AI合作编程技巧:</h4>
+                            <ul class="text-sm space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-angle-right text-accent mr-2 mt-1"></i>
+                                    <span>提供清晰、具体的功能描述，包括输入、预期输出和边界条件</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-angle-right text-accent mr-2 mt-1"></i>
+                                    <span>将复杂任务分解为小步骤，逐步要求AI生成代码</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-angle-right text-accent mr-2 mt-1"></i>
+                                    <span>要求AI解释关键代码，确保你理解它如何工作</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-angle-right text-accent mr-2 mt-1"></i>
+                                    <span>提供示例代码样式，让AI生成风格一致的代码</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-angle-right text-accent mr-2 mt-1"></i>
+                                    <span>不断迭代和完善，利用AI帮助调试和优化</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg text-gray-700 dark:text-gray-300">
+                            <h4 class="font-semibold text-gray-900 dark:text-white mb-2">有效提示词示例:</h4>
+                            <p class="text-sm font-mono bg-gray-100 dark:bg-gray-700 p-2 rounded whitespace-pre-line">
+"我需要一个Python脚本，用于自动处理Excel数据。具体功能如下:
+
+1. 从指定文件夹中读取所有.xlsx文件
+2. 合并所有文件的数据到一个DataFrame
+3. 进行数据清洗(删除重复行，填充空值)
+4. 按'销售日期'列计算每周销售总额
+5. 生成按周销售趋势图
+6. 将结果保存为新Excel文件
+
+请提供完整代码，包含必要的错误处理和注释。使用pandas和matplotlib库。"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Submission Guidelines -->
+        <section id="submission" class="mb-20">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">作品提交指南</h2>
+                <div class="w-20 h-1 bg-accent mx-auto"></div>
+            </div>
+
+            <div class="bento-card p-8 animate-fade-in">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    <div>
+                        <h3 class="text-lg font-bold mb-6 text-gray-900 dark:text-white">提交要求</h3>
+
+                        <div class="space-y-6">
+                            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
+                                    <i class="fas fa-file-code text-accent mr-3"></i>
+                                    项目文档
+                                </h4>
+                                <ul class="text-gray-600 dark:text-gray-400 space-y-2 ml-8 list-disc text-base">
+                                    <li>项目说明文档(.pdf或.md):</li>
+                                    <ul class="ml-6 mt-1 space-y-1 text-sm">
+                                        <li>问题描述与背景</li>
+                                        <li>解决方案详细说明</li>
+                                        <li>使用的工具和技术</li>
+                                        <li>实施步骤和流程图</li>
+                                    </ul>
+                                    <li class="mt-2">演示材料:</li>
+                                    <ul class="ml-6 mt-1 space-y-1 text-sm">
+                                        <li>演示视频(3分钟以内)或</li>
+                                        <li>详细的截图演示(带说明)</li>
+                                    </ul>
+                                </ul>
+                            </div>
+
+                            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
+                                    <i class="fas fa-code-branch text-accent mr-3"></i>
+                                    代码与配置
+                                </h4>
+                                <ul class="text-gray-600 dark:text-gray-400 space-y-2 ml-8 list-disc text-base">
+                                    <li>源代码文件(如适用):</li>
+                                    <ul class="ml-6 mt-1 space-y-1 text-sm">
+                                        <li>需包含完整代码和注释</li>
+                                        <li>提供环境配置说明</li>
+                                    </ul>
+                                    <li class="mt-2">无代码/低代码平台:</li>
+                                    <ul class="ml-6 mt-1 space-y-1 text-sm">
+                                        <li>流程设计详细截图</li>
+                                        <li>配置说明和模板文件</li>
+                                    </ul>
+                                    <li class="mt-2">执行说明:</li>
+                                    <ul class="ml-6 mt-1 space-y-1 text-sm">
+                                        <li>如何设置和运行自动化</li>
+                                        <li>必要的账户和权限设置</li>
+                                    </ul>
+                                </ul>
+                            </div>
+
+                            <div class="bg-accent-light dark:bg-accent/10 p-6 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
+                                    <i class="fas fa-lightbulb text-accent mr-3"></i>
+                                    AI创作记录
+                                </h4>
+                                <p class="text-gray-700 dark:text-gray-300 mb-3">
+                                    必须附上"AI创作生成记录"，包含以下内容：
+                                </p>
+                                <ul class="text-gray-600 dark:text-gray-400 space-y-2 ml-8 list-disc text-base">
+                                    <li>使用的AI工具名称和版本</li>
+                                    <li>关键提示词示例(至少3个)</li>
+                                    <li>创作过程截图(至少3张)</li>
+                                    <li>创作流程简述(250字以内)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">提交流程</h3>
+
+                        <div class="space-y-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold">
+                                    1
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-semibold text-lg text-gray-900 dark:text-white mb-2">准备材料</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">
+                                        准备所有所需文档，包括项目说明、演示材料、源代码/配置和AI创作记录。将所有文件整理到一个压缩包中，命名格式为"AI编程与自动化赛道_姓名_部门.zip"
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="border-l-2 border-gray-200 dark:border-gray-700 ml-6 pl-6 py-2"></div>
+
+                            <div class="flex">
+                                <div class="flex-shrink-0 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold">
+                                    2
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-semibold text-lg text-gray-900 dark:text-white mb-2">发送邮件</h4>
+                                    <p class="text-gray-600 dark:text-gray-400 mb-3">
+                                        发送邮件至 <code class="bg-gray-200 dark:bg-gray-700 px-2 py-0.5 rounded">gh@egocvs.com</code>，主题格式为：
+                                    </p>
+                                    <div class="bg-gray-200 dark:bg-gray-700 p-3 rounded text-gray-700 dark:text-gray-300 text-sm whitespace-normal mb-3">
+                                        【2025年度"最美逸刻人"主题系列活动】+部门/门店+姓名+作品标题
+                                    </div>
+                                    <p class="text-gray-600 dark:text-gray-400">
+                                        邮件正文中请留下你的联系手机，并附上项目简介(200字以内)。对于大型文件，可使用网盘链接分享。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="border-l-2 border-gray-200 dark:border-gray-700 ml-6 pl-6 py-2"></div>
+
+                            <div class="flex">
+                                <div class="flex-shrink-0 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center text-xl font-bold">
+                                    3
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="font-semibold text-lg text-gray-900 dark:text-white mb-2">确认提交</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">
+                                        提交后，你将在1-3个工作日内收到确认邮件。如果没有收到确认，请再次联系工会确认提交状态。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-red-50 dark:bg-red-900/10 p-6 rounded-lg mt-10">
+                            <div class="flex items-start">
+                                <i class="fas fa-exclamation-triangle text-red-500 text-2xl mr-4 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-gray-900 dark:text-white mb-2">注意事项</h4>
+                                    <ul class="text-gray-700 dark:text-gray-300 space-y-2">
+                                        <li>• 所有提交材料中不得包含敏感信息或商业机密</li>
+                                        <li>• 确保自动化项目不会对生产环境造成风险</li>
+                                        <li>• 源码中不得包含密码、API密钥等敏感信息</li>
+                                        <li>• 务必在<span class="font-bold text-red-500">2025年5月30日</span>前完成提交</li>
+                                        <li>• 必须附上AI创作记录，否则作品将不予评选</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Section -->
+        <section class="text-center animate-fade-in">
+            <div class="bento-card p-10 md:p-16">
+                <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+                    准备好开始你的AI自动化项目了吗？
+                </h2>
+
+                <p class="text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
+                    利用AI技术，即使没有专业编程背景，你也能创造出高效的自动化解决方案。无论你的技能水平如何，都可以参与这个赛道，展示你的创新思维和解决问题的能力。
+                </p>
+
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="index.html#tracks" class="bg-white border-2 border-accent text-accent hover:bg-accent-light dark:bg-gray-800 dark:hover:bg-accent/10 font-bold py-3 px-8 rounded-lg shadow-md transition-colors">
+                        <i class="fas fa-arrow-left mr-2"></i> 返回赛道概览
+                    </a>
+
+                    <a href="index.html#how-to-participate" class="bg-accent hover:bg-accent-dark text-white font-bold py-3 px-8 rounded-lg shadow-md transition-colors">
+                        <i class="fas fa-rocket mr-2"></i> 立即参与创作
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="mt-16 py-12 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">逸刻AI应用创新赛</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        2025年度"最美逸刻人"主题系列活动
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        <i class="fas fa-envelope mr-2 text-accent"></i> gh@egocvs.com
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">比赛赛道</h3>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li><a href="track1.html" class="hover:text-accent">AI 内容创作</a></li>
+                        <li><a href="track2.html" class="hover:text-accent">AI 视觉设计</a></li>
+                        <li><a href="track3.html" class="hover:text-accent">AI 影音生成</a></li>
+                        <li><a href="track4.html" class="text-accent font-medium">AI 编程与自动化</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">自动化资源</h3>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li><a href="#automation-methods" class="hover:text-accent">自动化方法</a></li>
+                        <li><a href="#tools" class="hover:text-accent">推荐工具</a></li>
+                        <li><a href="#examples" class="hover:text-accent">项目示例</a></li>
+                        <li><a href="#submission" class="hover:text-accent">提交指南</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-500 dark:text-gray-400">
+                <p>作者: AtelierQin</p>
+                <p class="mt-1">© 2025上海逸刻新零售网络科技有限公司工会委员会. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        // Scroll progress bar
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            // Ensure scrollHeight is positive to avoid division by zero
+            const scrollPercentage = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+            document.getElementById('scrollProgress').style.width = scrollPercentage + '%';
+        });
+
+        // Animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateItems = document.querySelectorAll('.animate-fade-in');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target); // Stop observing once animated
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            animateItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+                // Apply animation delays if specified via class
+                const delayClass = Array.from(item.classList).find(cls => cls.startsWith('delay-'));
+                if (delayClass) {
+                    const delayValue = delayClass.split('-')[1];
+                    item.style.transitionDelay = `${parseInt(delayValue) / 1000}s`;
+                }
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>
