@@ -14,14 +14,13 @@
         :root {
             --primary: #00B0B9; /* Primary color */
             --primary-light: #e6f7f8; /* Light primary color */
-            --primary-dark: #008a91; /* Dark primary color */
+            --primary-dark: #008a91; /* Dark primary color (used for hover states etc.) */
             --accent: #FF9800; /* Accent color */
             --accent-light: #fff4e6; /* Light accent color */
-            --accent-dark: #cc7a00; /* Dark accent color */
+            --accent-dark: #cc7a00; /* Dark accent color (used for hover states etc.) */
             --text-dark: #333333; /* Dark text color */
             --text-light: #666666; /* Light text color */
             --bg-light: #f8f9fa; /* Light background color */
-            --bg-dark: #1a202c; /* Dark background color */
         }
 
         /* Basic body styling */
@@ -120,9 +119,6 @@
             bottom: -12px;
             width: 2px;
             background-color: #e2e8f0; /* Line color */
-        }
-        .dark .timeline-item:not(:last-child):after { /* Dark mode timeline line */
-            background-color: #4a5568;
         }
 
         /* Fade-in animation */
@@ -254,10 +250,10 @@
         }
     </script>
 </head>
-<body class="bg-gray-50 text-gray-800 transition-colors duration-300">
+<body class="bg-gray-50 text-gray-800">
     <div class="progress-bar" id="scrollProgress"></div>
 
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm transition-colors duration-300">
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <a href="index.html" class="text-xl sm:text-2xl font-bold text-accent">
                 <i class="fas fa-rocket mr-2"></i>
@@ -276,22 +272,22 @@
         </div>
     </header>
 
-    <section class="relative bg-accent-light dark:bg-accent/10 py-20 px-4">
+    <section class="relative bg-accent-light py-20 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 gap-10 items-center">
                 <div class="md:pr-8 animate-fade-in delay-100">
                     <span class="inline-block bg-accent/10 text-accent px-4 py-1 rounded-full mb-4 font-medium text-sm">赛道 02</span>
-                    <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+                    <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-gray-900">
                         AI <span class="text-accent">视觉设计</span>
                     </h1>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
+                    <p class="text-lg text-gray-600 mb-8">
                         运用AI快速实现视觉创意。设计逸刻主题的周边产品，提交源文件，分辨率不低于300dpi。利用AI工具释放你的创造力，设计令人惊艳的视觉作品。
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#design-methods" class="bg-accent hover:bg-accent-dark text-white font-medium px-6 py-3 rounded-lg transition-colors shadow-md">
                             <i class="fas fa-lightbulb mr-2"></i>设计方法
                         </a>
-                        <a href="#tools" class="bg-white dark:bg-gray-800 text-accent border-2 border-accent hover:bg-accent-light dark:hover:bg-accent/10 font-medium px-6 py-3 rounded-lg transition-colors shadow-md">
+                        <a href="#tools" class="bg-white text-accent border-2 border-accent hover:bg-accent-light font-medium px-6 py-3 rounded-lg transition-colors shadow-md">
                             <i class="fas fa-tools mr-2"></i>推荐工具
                         </a>
                     </div>
@@ -301,12 +297,12 @@
                         <div class="aspect-square rounded-lg overflow-hidden mb-6">
                             <img src="images/track-images/ai-design.jpeg" alt="AI 设计演示 " class="w-full h-full object-cover">
                         </div>
-                        <div class="bento-card p-6 bg-white dark:bg-gray-800">
-                            <h2 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">作品案例</h2>
-                            <p class="text-gray-600 dark:text-gray-400 mb-4">《逸刻3D渲染小模型》，通过即梦AI生成便利店等轴设计图标。</p>
+                        <div class="bento-card p-6 bg-white">
+                            <h2 class="font-bold text-xl mb-2 text-gray-900">作品案例</h2>
+                            <p class="text-gray-600 mb-4">《逸刻3D渲染小模型》，通过即梦AI生成便利店等轴设计图标。</p>
                             <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-2 sm:space-y-0">
-                                <span class="bg-accent-light dark:bg-accent/20 text-accent px-3 py-1 rounded-md text-sm font-medium">周边设计</span>
-                                <span class="text-gray-500 dark:text-gray-400 text-sm">1:1 / AI生成</span>
+                                <span class="bg-accent-light text-accent px-3 py-1 rounded-md text-sm font-medium">周边设计</span>
+                                <span class="text-gray-500 text-sm">1:1 / AI生成</span>
                             </div>
                         </div>
                     </div>
@@ -318,31 +314,31 @@
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <section class="mb-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">赛道概览</h2>
+                <h2 class="text-3xl font-bold mb-4 text-gray-900">赛道概览</h2>
                 <div class="w-20 h-1 bg-accent mx-auto"></div> </div>
 
             <div class="bento-card p-8 animate-fade-in">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="text-center">
-                        <div class="w-12 h-12 mx-auto rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center mb-4">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-accent-light flex items-center justify-center mb-4">
                             <i class="fas fa-palette text-2xl text-accent"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">赛道主题</h3>
-                        <p class="text-gray-600 dark:text-gray-400">设计以逸刻为主题的周边产品，如环保袋、贴纸、徽章、杯子等。提交高分辨率设计文件和AI创作记录。</p>
+                        <h3 class="text-xl font-bold mb-4 text-gray-900">赛道主题</h3>
+                        <p class="text-gray-600">设计以逸刻为主题的周边产品，如环保袋、贴纸、徽章、杯子等。提交高分辨率设计文件和AI创作记录。</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-12 h-12 mx-auto rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center mb-4">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-accent-light flex items-center justify-center mb-4">
                             <i class="fas fa-trophy text-2xl text-accent"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">参赛目标</h3>
-                        <p class="text-gray-600 dark:text-gray-400">利用AI工具创作独特、具有视觉冲击力的设计，展示品牌特色，具有实用价值和美学价值。</p>
+                        <h3 class="text-xl font-bold mb-4 text-gray-900">参赛目标</h3>
+                        <p class="text-gray-600">利用AI工具创作独特、具有视觉冲击力的设计，展示品牌特色，具有实用价值和美学价值。</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-12 h-12 mx-auto rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center mb-4">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-accent-light flex items-center justify-center mb-4">
                             <i class="fas fa-check-circle text-2xl text-accent"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">提交要求</h3>
-                        <p class="text-gray-600 dark:text-gray-400">提交最终设计文件(.png/.jpg/.pdf)、设计源文件、AI创作流程记录和设计说明。</p>
+                        <h3 class="text-xl font-bold mb-4 text-gray-900">提交要求</h3>
+                        <p class="text-gray-600">提交最终设计文件(.png/.jpg/.pdf)、设计源文件、AI创作流程记录和设计说明。</p>
                     </div>
                 </div>
             </div>
@@ -350,26 +346,26 @@
 
         <section id="design-methods" class="mb-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">设计方法与流程</h2>
+                <h2 class="text-3xl font-bold mb-4 text-gray-900">设计方法与流程</h2>
                 <div class="w-20 h-1 bg-accent mx-auto mb-4"></div>
-                <p class="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                <p class="text-gray-600 max-w-3xl mx-auto">
                     以下是几种利用AI进行视觉设计的有效方法，你可以选择一种或结合多种方法来完成你的参赛作品。
                 </p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-fade-in">
                 <div class="bento-card p-8 h-full flex flex-col">
-                    <div class="w-12 h-12 rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center text-accent text-xl mb-6">
+                    <div class="w-12 h-12 rounded-full bg-accent-light flex items-center justify-center text-accent text-xl mb-6">
                         <i class="fas fa-magic"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">文本描述生成法</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6 flex-grow">
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">文本描述生成法</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">
                         通过详细的文字描述，让AI直接生成符合你创意的设计图像，之后在设计软件中进行必要的调整和优化。
                     </p>
                     <div class="space-y-4 mt-auto">
-                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">操作步骤:</h4>
-                            <ol class="text-gray-600 dark:text-gray-400 list-decimal ml-5 space-y-2 text-sm">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 mb-4">操作步骤:</h4>
+                            <ol class="text-gray-600 list-decimal ml-5 space-y-2 text-sm">
                                 <li>构思设计理念和风格</li>
                                 <li>撰写详细的描述提示词</li>
                                 <li>利用AI工具生成多个版本</li>
@@ -377,25 +373,25 @@
                                 <li>在设计软件中进行后期优化</li>
                             </ol>
                         </div>
-                        <div class="bg-accent-light dark:bg-accent/10 p-4 rounded-lg">
-                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">适合人群:</h4>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm">设计经验不多但有清晰创意的参赛者，适合创作独特有创意的图形和图案设计。</p>
+                        <div class="bg-accent-light p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 mb-4">适合人群:</h4>
+                            <p class="text-gray-600 text-sm">设计经验不多但有清晰创意的参赛者，适合创作独特有创意的图形和图案设计。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="bento-card p-8 h-full flex flex-col">
-                    <div class="w-12 h-12 rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center text-accent text-xl mb-6">
+                    <div class="w-12 h-12 rounded-full bg-accent-light flex items-center justify-center text-accent text-xl mb-6">
                         <i class="fas fa-paint-brush"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">参考图引导法</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6 flex-grow">
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">参考图引导法</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">
                         结合文字描述和参考图像，让AI生成接近你期望风格的设计，通过多次迭代和风格引导达到理想效果。
                     </p>
                     <div class="space-y-4 mt-auto">
-                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">操作步骤:</h4>
-                            <ol class="text-gray-600 dark:text-gray-400 list-decimal ml-5 space-y-2 text-sm">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 mb-4">操作步骤:</h4>
+                            <ol class="text-gray-600 list-decimal ml-5 space-y-2 text-sm">
                                 <li>收集风格参考图片</li>
                                 <li>结合图片与文字提示</li>
                                 <li>使用风格转换AI工具</li>
@@ -403,25 +399,25 @@
                                 <li>整合结果完成最终设计</li>
                             </ol>
                         </div>
-                        <div class="bg-accent-light dark:bg-accent/10 p-4 rounded-lg">
-                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">适合人群:</h4>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm">有一定设计感，能够识别并收集特定风格的参赛者，适合创作需要特定风格的设计。</p>
+                        <div class="bg-accent-light p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 mb-4">适合人群:</h4>
+                            <p class="text-gray-600 text-sm">有一定设计感，能够识别并收集特定风格的参赛者，适合创作需要特定风格的设计。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="bento-card p-8 h-full flex flex-col">
-                    <div class="w-12 h-12 rounded-full bg-accent-light dark:bg-accent/20 flex items-center justify-center text-accent text-xl mb-6">
+                    <div class="w-12 h-12 rounded-full bg-accent-light flex items-center justify-center text-accent text-xl mb-6">
                         <i class="fas fa-layer-group"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">AI辅助混合法</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6 flex-grow">
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">AI辅助混合法</h3>
+                    <p class="text-gray-600 mb-6 flex-grow">
                         将AI与传统设计软件相结合，使用AI生成设计元素和创意，然后在专业软件中组合、调整和增强这些元素。
                     </p>
                     <div class="space-y-4 mt-auto">
-                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">操作步骤:</h4>
-                            <ol class="text-gray-600 dark:text-gray-400 list-decimal ml-5 space-y-2 text-sm">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 mb-4">操作步骤:</h4>
+                            <ol class="text-gray-600 list-decimal ml-5 space-y-2 text-sm">
                                 <li>确定需要的设计元素</li>
                                 <li>使用AI分别生成各元素</li>
                                 <li>在Photoshop/Illustrator中导入</li>
@@ -429,9 +425,9 @@
                                 <li>添加文字、色彩和效果</li>
                             </ol>
                         </div>
-                        <div class="bg-accent-light dark:bg-accent/10 p-4 rounded-lg">
-                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">适合人群:</h4>
-                            <p class="text-gray-600 dark:text-gray-400 text-sm">具有专业设计软件使用经验的参赛者，适合创作需要精细控制的复杂设计作品。</p>
+                        <div class="bg-accent-light p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 mb-4">适合人群:</h4>
+                            <p class="text-gray-600 text-sm">具有专业设计软件使用经验的参赛者，适合创作需要精细控制的复杂设计作品。</p>
                         </div>
                     </div>
                 </div>
@@ -440,9 +436,9 @@
 
         <section id="tools" class="mb-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">推荐设计工具</h2>
+                <h2 class="text-3xl font-bold mb-4 text-gray-900">推荐设计工具</h2>
                 <div class="w-20 h-1 bg-accent mx-auto mb-4"></div>
-                <p class="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                <p class="text-gray-600 max-w-3xl mx-auto">
                     以下是一些能够帮助你高效完成视觉设计的AI工具，它们各有特点，可以根据自己的需求选择使用。
                 </p>
             </div>
@@ -452,34 +448,34 @@
                     <div class="p-6 flex-grow">
                         <div class="flex items-center mb-4">
                             <img src="https://placehold.co/40x40/7F00FF/FFFFFF?text=MJ" alt="Midjourney Logo " class="w-10 h-10 rounded object-cover mr-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Midjourney</h3>
+                            <h3 class="text-xl font-bold text-gray-900">Midjourney</h3>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                        <p class="text-gray-600 mb-4 text-sm">
                             通过Discord运行的强大AI图像生成工具，能创建极其逼真和艺术化的图像，支持复杂提示词和风格控制。
                         </p>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">高品质艺术风格图像</span>
+                                <span class="text-gray-600">高品质艺术风格图像</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">强大的风格控制能力</span>
+                                <span class="text-gray-600">强大的风格控制能力</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">活跃的创作社区</span>
+                                <span class="text-gray-600">活跃的创作社区</span>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                    <div class="bg-gray-50 p-4 mt-auto">
                         <div class="flex justify-between items-center mb-1">
-                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <h4 class="font-semibold text-gray-900 text-sm">适用场景</h4>
                             <span class="text-accent">★★★★★</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">高质量概念图、复杂艺术风格、品牌视觉</p>
+                        <p class="text-gray-600 text-sm">高质量概念图、复杂艺术风格、品牌视觉</p>
                         <div class="mt-2">
-                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-2 py-0.5 rounded-full">付费工具</span>
+                            <span class="inline-block bg-accent-light text-accent text-sm font-medium px-2 py-0.5 rounded-full">付费工具</span>
                         </div>
                     </div>
                 </div>
@@ -488,34 +484,34 @@
                     <div class="p-6 flex-grow">
                         <div class="flex items-center mb-4">
                            <img src="https://placehold.co/40x40/000000/FFFFFF?text=SD" alt="Stable Diffusion Logo " class="w-10 h-10 rounded object-cover mr-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Stable Diffusion</h3>
+                            <h3 class="text-xl font-bold text-gray-900">Stable Diffusion</h3>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                        <p class="text-gray-600 mb-4 text-sm">
                             开源的AI图像生成模型，可本地或云端运行，提供极高的自定义性和控制性，适合有技术背景的用户。
                         </p>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">完全可定制</span>
+                                <span class="text-gray-600">完全可定制</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">多种控制插件 (ControlNet)</span>
+                                <span class="text-gray-600">多种控制插件 (ControlNet)</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">可本地或云端运行</span>
+                                <span class="text-gray-600">可本地或云端运行</span>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                    <div class="bg-gray-50 p-4 mt-auto">
                         <div class="flex justify-between items-center mb-1">
-                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <h4 class="font-semibold text-gray-900 text-sm">适用场景</h4>
                             <span class="text-accent">★★★★★</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">精细控制的设计、特定风格图像、批量生成</p>
+                        <p class="text-gray-600 text-sm">精细控制的设计、特定风格图像、批量生成</p>
                          <div class="mt-2">
-                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-2 py-0.5 rounded-full">开源/免费</span>
+                            <span class="inline-block bg-accent-light text-accent text-sm font-medium px-2 py-0.5 rounded-full">开源/免费</span>
                         </div>
                     </div>
                 </div>
@@ -524,34 +520,34 @@
                     <div class="p-6 flex-grow">
                         <div class="flex items-center mb-4">
                             <img src="https://placehold.co/40x40/05A3A5/FFFFFF?text=C" alt="Canva Logo " class="w-10 h-10 rounded object-cover mr-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Canva AI</h3>
+                            <h3 class="text-xl font-bold text-gray-900">Canva AI</h3>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                        <p class="text-gray-600 mb-4 text-sm">
                             Canva平台的AI设计，结合了图像生成和设计功能，提供模板和简单编辑工具，适合快速创建完整设计。
                         </p>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">丰富的模板库</span>
+                                <span class="text-gray-600">丰富的模板库</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">简单易用的界面</span>
+                                <span class="text-gray-600">简单易用的界面</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">一站式设计解决方案</span>
+                                <span class="text-gray-600">一站式设计解决方案</span>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                    <div class="bg-gray-50 p-4 mt-auto">
                         <div class="flex justify-between items-center mb-1">
-                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <h4 class="font-semibold text-gray-900 text-sm">适用场景</h4>
                             <span class="text-accent">★★★★☆</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">快速设计、社交媒体图片、营销素材</p>
+                        <p class="text-gray-600 text-sm">快速设计、社交媒体图片、营销素材</p>
                          <div class="mt-2">
-                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
+                            <span class="inline-block bg-accent-light text-accent text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
                         </div>
                     </div>
                 </div>
@@ -560,34 +556,34 @@
                     <div class="p-6 flex-grow">
                         <div class="flex items-center mb-4">
                             <img src="https://placehold.co/40x40/FF6B6B/FFFFFF?text=JM" alt="即梦 Logo " class="w-10 h-10 rounded object-cover mr-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">即梦</h3>
+                            <h3 class="text-xl font-bold text-gray-900">即梦</h3>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                        <p class="text-gray-600 mb-4 text-sm">
                            字节跳动旗下AI创作平台，提供高质量的图像生成和编辑功能，风格多样，尤其擅长生成符合东方审美的图像。
                         </p>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">高质量图像生成</span>
+                                <span class="text-gray-600">高质量图像生成</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">丰富的风格选择</span>
+                                <span class="text-gray-600">丰富的风格选择</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">支持中文提示词</span>
+                                <span class="text-gray-600">支持中文提示词</span>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                    <div class="bg-gray-50 p-4 mt-auto">
                         <div class="flex justify-between items-center mb-1">
-                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <h4 class="font-semibold text-gray-900 text-sm">适用场景</h4>
                             <span class="text-accent">★★★★☆</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">创意插画、国风设计、概念艺术</p>
+                        <p class="text-gray-600 text-sm">创意插画、国风设计、概念艺术</p>
                          <div class="mt-2">
-                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
+                            <span class="inline-block bg-accent-light text-accent text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
                         </div>
                     </div>
                 </div>
@@ -596,34 +592,34 @@
                     <div class="p-6 flex-grow">
                         <div class="flex items-center mb-4">
                             <img src="https://placehold.co/40x40/4ECDC4/FFFFFF?text=KL" alt="可灵 Logo " class="w-10 h-10 rounded object-cover mr-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">可灵</h3>
+                            <h3 class="text-xl font-bold text-gray-900">可灵</h3>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                        <p class="text-gray-600 mb-4 text-sm">
                            快手推出的AI视频生成大模型，能够生成长达2分钟、1080p、30fps的高质量视频，支持多种风格和复杂运动。
                         </p>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">高质量视频生成</span>
+                                <span class="text-gray-600">高质量视频生成</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">支持较长视频时长</span>
+                                <span class="text-gray-600">支持较长视频时长</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">模拟真实物理世界</span>
+                                <span class="text-gray-600">模拟真实物理世界</span>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                    <div class="bg-gray-50 p-4 mt-auto">
                         <div class="flex justify-between items-center mb-1">
-                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <h4 class="font-semibold text-gray-900 text-sm">适用场景</h4>
                             <span class="text-accent">★★★★☆</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">短视频创作、概念演示、动态视觉</p>
+                        <p class="text-gray-600 text-sm">短视频创作、概念演示、动态视觉</p>
                          <div class="mt-2">
-                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
+                            <span class="inline-block bg-accent-light text-accent text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
                         </div>
                     </div>
                 </div>
@@ -632,34 +628,34 @@
                     <div class="p-6 flex-grow">
                         <div class="flex items-center mb-4">
                             <img src="https://placehold.co/40x40/FF8B4B/FFFFFF?text=DB" alt="豆包 Logo " class="w-10 h-10 rounded object-contain mr-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">豆包</h3>
+                            <h3 class="text-xl font-bold text-gray-900">豆包</h3>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                        <p class="text-gray-600 mb-4 text-sm">
                             字节跳动推出的多功能AI助手，除了文本创作，也具备一定的图像生成能力，操作简单，适合快速生成基础视觉元素。
                         </p>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">集成多种AI能力</span>
+                                <span class="text-gray-600">集成多种AI能力</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">操作简单易上手</span>
+                                <span class="text-gray-600">操作简单易上手</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">适合快速原型设计</span>
+                                <span class="text-gray-600">适合快速原型设计</span>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                    <div class="bg-gray-50 p-4 mt-auto">
                         <div class="flex justify-between items-center mb-1">
-                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <h4 class="font-semibold text-gray-900 text-sm">适用场景</h4>
                             <span class="text-accent">★★★★☆</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">基础图像生成、内容配图、创意启发</p>
+                        <p class="text-gray-600 text-sm">基础图像生成、内容配图、创意启发</p>
                          <div class="mt-2">
-                            <span class="inline-block bg-accent-light dark:bg-accent/20 text-accent text-sm font-medium px-2 py-0.5 rounded-full">免费使用</span>
+                            <span class="inline-block bg-accent-light text-accent text-sm font-medium px-2 py-0.5 rounded-full">免费使用</span>
                         </div>
                     </div>
                 </div>
@@ -668,9 +664,9 @@
 
         <section id="examples" class="mb-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">设计案例展示</h2>
+                <h2 class="text-3xl font-bold mb-4 text-gray-900">设计案例展示</h2>
                 <div class="w-20 h-1 bg-accent mx-auto mb-4"></div>
-                <p class="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                <p class="text-gray-600 max-w-3xl mx-auto">
                     以下是一些全球 AI 视觉设计大赛的获奖作品或优秀案例，可以为你提供灵感。
                 </p>
             </div>
@@ -743,7 +739,7 @@
             </div>
 
             <div class="mt-10 text-center">
-                <p class="text-gray-600 dark:text-gray-400 mb-6">
+                <p class="text-gray-600 mb-6">
                     这些案例展示了AI视觉设计的多种可能性。无论你选择哪种方法，关键是利用AI工具提高效率，同时保持设计的创意性和品牌一致性。
                 </p>
                 <a href="#tools" class="text-accent hover:text-accent-dark font-medium">
@@ -754,113 +750,113 @@
 
         <section id="tips" class="mb-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">视觉设计小贴士</h2>
+                <h2 class="text-3xl font-bold mb-4 text-gray-900">视觉设计小贴士</h2>
                 <div class="w-20 h-1 bg-accent mx-auto"></div>
             </div>
 
             <div class="bento-card p-8 animate-fade-in">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
+                        <h3 class="text-xl font-bold mb-6 text-gray-900 flex items-center">
                             <i class="fas fa-check-circle text-accent mr-3"></i>有效的AI设计提示
                         </h3>
                         <ul class="space-y-4">
                             <li class="flex items-start">
                                 <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">详细描述视觉风格</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">在AI提示中尽可能详细地描述你想要的视觉风格、色彩、构图和元素，使用专业术语提高准确性。</p>
+                                    <h4 class="font-semibold text-gray-900">详细描述视觉风格</h4>
+                                    <p class="text-gray-600">在AI提示中尽可能详细地描述你想要的视觉风格、色彩、构图和元素，使用专业术语提高准确性。</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">多次迭代优化</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">不要期望一次就得到完美结果，通过多次迭代逐步优化，每次根据生成结果调整你的提示词。</p>
+                                    <h4 class="font-semibold text-gray-900">多次迭代优化</h4>
+                                    <p class="text-gray-600">不要期望一次就得到完美结果，通过多次迭代逐步优化，每次根据生成结果调整你的提示词。</p>
                                 </div>
                             </li>
                              <li class="flex items-start">
                                 <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">结合参考图像</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">使用参考图像引导AI生成更接近你期望的结果，尤其是对特定风格或色彩方案的要求。</p>
+                                    <h4 class="font-semibold text-gray-900">结合参考图像</h4>
+                                    <p class="text-gray-600">使用参考图像引导AI生成更接近你期望的结果，尤其是对特定风格或色彩方案的要求。</p>
                                 </div>
                             </li>
                              <li class="flex items-start">
                                 <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">考虑实际应用</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">始终考虑设计的最终应用场景，确保生成的设计在实际使用中效果良好，考虑不同材质和尺寸。</p>
+                                    <h4 class="font-semibold text-gray-900">考虑实际应用</h4>
+                                    <p class="text-gray-600">始终考虑设计的最终应用场景，确保生成的设计在实际使用中效果良好，考虑不同材质和尺寸。</p>
                                 </div>
                             </li>
                              <li class="flex items-start">
                                 <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">保持品牌一致性</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">确保AI生成的设计符合品牌视觉识别系统，包括正确的色彩应用、风格和品牌元素使用。</p>
+                                    <h4 class="font-semibold text-gray-900">保持品牌一致性</h4>
+                                    <p class="text-gray-600">确保AI生成的设计符合品牌视觉识别系统，包括正确的色彩应用、风格和品牌元素使用。</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
+                        <h3 class="text-xl font-bold mb-6 text-gray-900 flex items-center">
                             <i class="fas fa-times-circle text-red-500 mr-3"></i>常见设计误区
                         </h3>
                         <ul class="space-y-4">
                             <li class="flex items-start">
                                 <i class="fas fa-times text-red-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">过度依赖原始输出</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">AI生成的原始结果往往需要进一步调整。不要只接受初始输出，而应该将其作为起点进行修改和优化。</p>
+                                    <h4 class="font-semibold text-gray-900">过度依赖原始输出</h4>
+                                    <p class="text-gray-600">AI生成的原始结果往往需要进一步调整。不要只接受初始输出，而应该将其作为起点进行修改和优化。</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-times text-red-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">忽视技术限制</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">了解AI工具的技术限制，如文字生成、特定细节处理能力，为这些区域预留后期调整时间。</p>
+                                    <h4 class="font-semibold text-gray-900">忽视技术限制</h4>
+                                    <p class="text-gray-600">了解AI工具的技术限制，如文字生成、特定细节处理能力，为这些区域预留后期调整时间。</p>
                                 </div>
                             </li>
                              <li class="flex items-start">
                                 <i class="fas fa-times text-red-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">缺乏设计原则</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">不要因为使用AI而忽略基本的设计原则。平衡、对比、层次、对齐等基础设计原则仍然重要。</p>
+                                    <h4 class="font-semibold text-gray-900">缺乏设计原则</h4>
+                                    <p class="text-gray-600">不要因为使用AI而忽略基本的设计原则。平衡、对比、层次、对齐等基础设计原则仍然重要。</p>
                                 </div>
                             </li>
                              <li class="flex items-start">
                                 <i class="fas fa-times text-red-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">过度复杂的设计</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">AI有时会生成过于复杂的设计。好的设计往往简洁明了，确保最终作品不会因为太多元素而混乱。</p>
+                                    <h4 class="font-semibold text-gray-900">过度复杂的设计</h4>
+                                    <p class="text-gray-600">AI有时会生成过于复杂的设计。好的设计往往简洁明了，确保最终作品不会因为太多元素而混乱。</p>
                                 </div>
                             </li>
                              <li class="flex items-start">
                                 <i class="fas fa-times text-red-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">忽视版权问题</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">了解并遵守AI工具的使用条款和生成内容的版权限制，特别是在商业项目中，确保合规合法使用。</p>
+                                    <h4 class="font-semibold text-gray-900">忽视版权问题</h4>
+                                    <p class="text-gray-600">了解并遵守AI工具的使用条款和生成内容的版权限制，特别是在商业项目中，确保合规合法使用。</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="mt-10 bg-accent-light dark:bg-accent/10 p-6 rounded-lg">
-                    <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white text-center">参考提示词模板</h3>
-                    <p class="text-gray-700 dark:text-gray-300 mb-4 text-center text-sm">
+                <div class="mt-10 bg-accent-light p-6 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4 text-gray-900 text-center">参考提示词模板</h3>
+                    <p class="text-gray-700 mb-4 text-center text-sm">
                         以下是一些可以帮助你获得更好AI视觉设计结果的提示词模板：
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg text-gray-700 dark:text-gray-300">
-                            <h4 class="font-semibold text-gray-900 dark:text-white mb-2 text-sm">环保袋设计提示词:</h4>
-                            <p class="text-sm font-mono whitespace-pre-wrap bg-gray-100 dark:bg-gray-700 p-2 rounded">
+                        <div class="bg-white p-4 rounded-lg text-gray-700">
+                            <h4 class="font-semibold text-gray-900 mb-2 text-sm">环保袋设计提示词:</h4>
+                            <p class="text-sm font-mono whitespace-pre-wrap bg-gray-100 p-2 rounded">
 "设计一个具有[风格]风格的环保购物袋图案，主题是[主题]，使用[主色调]为主要颜色，图案风格[详细的风格描述]，需要包含[品牌元素]，整体感觉[情感描述]，适合印在[材质]上，300dpi，高细节水平。"
                             </p>
                         </div>
-                        <div class="bg-white dark:bg-gray-800 p-4 rounded-lg text-gray-700 dark:text-gray-300">
-                            <h4 class="font-semibold text-gray-900 dark:text-white mb-2 text-sm">标志/徽章设计提示词:</h4>
-                            <p class="text-sm font-mono whitespace-pre-wrap bg-gray-100 dark:bg-gray-700 p-2 rounded">
+                        <div class="bg-white p-4 rounded-lg text-gray-700">
+                            <h4 class="font-semibold text-gray-900 mb-2 text-sm">标志/徽章设计提示词:</h4>
+                            <p class="text-sm font-mono whitespace-pre-wrap bg-gray-100 p-2 rounded">
 "创建一个[现代/复古/简约]风格的[品牌名]标志或徽章，使用[几何/有机]形状，颜色包括[品牌色]，表达[品牌价值观]，需要在各种尺寸下清晰可辨，适合用于[应用场景]，矢量风格，干净的线条。"
                             </p>
                         </div>
@@ -871,21 +867,21 @@
 
         <section id="submission" class="mb-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">作品提交指南</h2>
+                <h2 class="text-3xl font-bold mb-4 text-gray-900">作品提交指南</h2>
                 <div class="w-20 h-1 bg-accent mx-auto"></div>
             </div>
 
             <div class="bento-card p-8 animate-fade-in">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                     <div>
-                        <h3 class="text-lg font-bold mb-6 text-gray-900 dark:text-white">提交要求</h3>
+                        <h3 class="text-lg font-bold mb-6 text-gray-900">提交要求</h3>
                         <div class="space-y-6">
-                            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-                                <h4 class="font-semibold text-gray-900 dark:text-white mb-3 flex items-center text-sm">
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-3 flex items-center text-sm">
                                     <i class="fas fa-file-image text-accent mr-3"></i>
                                     文件格式
                                 </h4>
-                                <ul class="text-gray-600 dark:text-gray-400 space-y-1 ml-8 list-disc text-base">
+                                <ul class="text-gray-600 space-y-1 ml-8 list-disc text-base">
                                     <li>最终设计文件: .jpg/.png/.pdf格式</li>
                                     <li>分辨率: 300dpi或更高</li>
                                     <li>设计源文件: .ai/.psd/.sketch等 (如有)</li>
@@ -893,12 +889,12 @@
                                     <li>文件命名: 作品名称_姓名_部门.扩展名</li>
                                 </ul>
                             </div>
-                            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-                                <h4 class="font-semibold text-gray-900 dark:text-white mb-3 flex items-center text-sm">
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-3 flex items-center text-sm">
                                     <i class="fas fa-list-ol text-accent mr-3"></i>
                                     内容要求
                                 </h4>
-                                <ul class="text-gray-600 dark:text-gray-400 space-y-1 ml-8 list-disc text-base">
+                                <ul class="text-gray-600 space-y-1 ml-8 list-disc text-base">
                                     <li>设计必须包含逸刻元素或主题</li>
                                     <li>需注明设计适用产品类型</li>
                                     <li>设计说明文档(300字以内)</li>
@@ -906,15 +902,15 @@
                                     <li>需遵循公司品牌指南 (如有)</li>
                                 </ul>
                             </div>
-                            <div class="bg-accent-light dark:bg-accent/10 p-6 rounded-lg">
-                                <h4 class="font-semibold text-gray-900 dark:text-white mb-3 flex items-center text-sm">
+                            <div class="bg-accent-light p-6 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-3 flex items-center text-sm">
                                     <i class="fas fa-lightbulb text-accent mr-3"></i>
                                     AI创作记录 (必需)
                                 </h4>
-                                <p class="text-gray-700 dark:text-gray-300 mb-3 text-sm">
+                                <p class="text-gray-700 mb-3 text-sm">
                                     必须附上"AI创作生成记录"，包含以下内容：
                                 </p>
-                                <ul class="text-gray-600 dark:text-gray-400 space-y-1 ml-8 list-disc text-base">
+                                <ul class="text-gray-600 space-y-1 ml-8 list-disc text-base">
                                     <li>使用的AI工具名称和版本</li>
                                     <li>关键提示词示例(至少3个)</li>
                                     <li>AI与人工创作的比例说明</li>
@@ -926,48 +922,48 @@
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">提交流程</h3>
+                        <h3 class="text-xl font-bold mb-6 text-gray-900">提交流程</h3>
                         <div class="space-y-6">
                             <div class="flex">
                                 <div class="flex-shrink-0 w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center text-lg font-bold">1</div>
                                 <div class="ml-4">
-                                    <h4 class="font-semibold text-md text-gray-900 dark:text-white mb-1">准备文件</h4>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                                    <h4 class="font-semibold text-md text-gray-900 mb-1">准备文件</h4>
+                                    <p class="text-gray-600 text-sm">
                                         准备好设计文件、源文件(如有)、AI创作记录和设计说明。将所有文件整理到一个压缩包中，文件名格式为"AI视觉设计赛道_姓名_部门.zip"
                                     </p>
                                 </div>
                             </div>
-                            <div class="border-l-2 border-gray-200 dark:border-gray-700 ml-5 pl-6 py-1"></div> <div class="flex">
+                            <div class="border-l-2 border-gray-200 ml-5 pl-6 py-1"></div> <div class="flex">
                                 <div class="flex-shrink-0 w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center text-lg font-bold">2</div>
                                 <div class="ml-4">
-                                    <h4 class="font-semibold text-md text-gray-900 dark:text-white mb-1">发送邮件</h4>
-                                    <p class="text-gray-600 dark:text-gray-400 mb-2 text-sm">
-                                        发送邮件至 <code class="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-sm">gh@egocvs.com</code>，主题格式为：
+                                    <h4 class="font-semibold text-md text-gray-900 mb-1">发送邮件</h4>
+                                    <p class="text-gray-600 mb-2 text-sm">
+                                        发送邮件至 <code class="bg-gray-200 px-1 py-0.5 rounded text-sm">gh@egocvs.com</code>，主题格式为：
                                     </p>
-                                    <div class="bg-gray-200 dark:bg-gray-700 p-2 rounded text-gray-700 dark:text-gray-300 text-sm whitespace-normal mb-2">
+                                    <div class="bg-gray-200 p-2 rounded text-gray-700 text-sm whitespace-normal mb-2">
                                         【2025年度"最美逸刻人"主题系列活动】+部门/门店+姓名+作品标题
                                     </div>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                                    <p class="text-gray-600 text-sm">
                                         邮件正文中请留下你的联系手机号码，并附上作品简介(100字以内)。将压缩包作为附件发送。
                                     </p>
                                 </div>
                             </div>
-                             <div class="border-l-2 border-gray-200 dark:border-gray-700 ml-5 pl-6 py-1"></div> <div class="flex">
+                             <div class="border-l-2 border-gray-200 ml-5 pl-6 py-1"></div> <div class="flex">
                                 <div class="flex-shrink-0 w-10 h-10 bg-accent text-white rounded-full flex items-center justify-center text-lg font-bold">3</div>
                                 <div class="ml-4">
-                                    <h4 class="font-semibold text-md text-gray-900 dark:text-white mb-1">确认提交</h4>
-                                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                                    <h4 class="font-semibold text-md text-gray-900 mb-1">确认提交</h4>
+                                    <p class="text-gray-600 text-sm">
                                         提交后，你将在1-3个工作日内收到确认邮件。如果没有收到确认，请再次联系工会确认提交状态。
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-red-50 dark:bg-red-900/10 p-6 rounded-lg mt-10">
+                        <div class="bg-red-50 p-6 rounded-lg mt-10">
                             <div class="flex items-start">
                                 <i class="fas fa-exclamation-triangle text-red-500 text-xl mr-4 mt-1"></i>
                                 <div>
-                                    <h4 class="font-semibold text-md text-gray-900 dark:text-white mb-2">特别注意</h4>
-                                    <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                    <h4 class="font-semibold text-md text-gray-900 mb-2">特别注意</h4>
+                                    <p class="text-gray-700 text-sm">
                                         所有设计作品必须是原创且使用AI辅助完成，确保附上完整的创作记录，没有创作记录的作品将不予评选。请在 <span class="font-bold text-red-500">2025年5月30日</span> 前完成所有提交步骤。
                                     </p>
                                 </div>
@@ -980,14 +976,14 @@
 
         <section class="text-center animate-fade-in">
             <div class="bento-card p-10 md:p-16">
-                <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+                <h2 class="text-3xl font-bold mb-6 text-gray-900">
                     准备好开始你的AI视觉设计了吗？
                 </h2>
-                <p class="text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
+                <p class="text-gray-600 mb-10 max-w-2xl mx-auto">
                     利用AI技术，你可以创造出令人惊艳的视觉设计，展现你的创意才华。无论你是设计新手还是有经验的设计师，AI都能帮助你提升创作效率和设计质量。
                 </p>
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="index.html#tracks" class="bg-white border-2 border-accent text-accent hover:bg-accent-light dark:bg-gray-800 dark:hover:bg-accent/10 font-bold py-3 px-8 rounded-lg shadow-md transition-colors">
+                    <a href="index.html#tracks" class="bg-white border-2 border-accent text-accent hover:bg-accent-light font-bold py-3 px-8 rounded-lg shadow-md transition-colors">
                         <i class="fas fa-arrow-left mr-2"></i> 返回赛道概览
                     </a>
                     <a href="index.html#how-to-participate" class="bg-accent hover:bg-accent-dark text-white font-bold py-3 px-8 rounded-lg shadow-md transition-colors">
@@ -998,21 +994,21 @@
         </section>
     </main>
 
-    <footer class="mt-16 py-12 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+    <footer class="mt-16 py-12 border-t border-gray-200 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <div>
-                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">逸刻AI应用创新赛</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                    <h3 class="text-lg font-bold mb-4 text-gray-900">逸刻AI应用创新赛</h3>
+                    <p class="text-gray-600 mb-4 text-sm">
                         2025年度"最美逸刻人"主题系列活动
                     </p>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                    <p class="text-gray-600 mb-4 text-sm">
                         <i class="fas fa-envelope mr-2 text-accent"></i> gh@egocvs.com
                     </p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">比赛赛道</h3>
-                    <ul class="space-y-2 text-gray-600 dark:text-gray-400 text-sm">
+                    <h3 class="text-lg font-bold mb-4 text-gray-900">比赛赛道</h3>
+                    <ul class="space-y-2 text-gray-600 text-sm">
                         <li><a href="track1.html" class="hover:text-accent">AI 内容创作</a></li>
                         <li><a href="track2.html" class="text-accent font-medium">AI 视觉设计</a></li>
                         <li><a href="track3.html" class="hover:text-accent">AI 影音生成</a></li>
@@ -1020,8 +1016,8 @@
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">视觉设计资源</h3>
-                    <ul class="space-y-2 text-gray-600 dark:text-gray-400 text-sm">
+                    <h3 class="text-lg font-bold mb-4 text-gray-900">视觉设计资源</h3>
+                    <ul class="space-y-2 text-gray-600 text-sm">
                         <li><a href="#design-methods" class="hover:text-accent">设计方法</a></li>
                         <li><a href="#tools" class="hover:text-accent">推荐工具</a></li>
                         <li><a href="#examples" class="hover:text-accent">作品案例</a></li>
@@ -1029,7 +1025,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-500 dark:text-gray-400">
+            <div class="mt-10 pt-6 border-t border-gray-200 text-center text-sm text-gray-500">
                 <p>作者: AtelierQin</p>
                 <p class="mt-1">© 2025上海逸刻新零售网络科技有限公司工会委员会. All Rights Reserved.</p>
             </div>

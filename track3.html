@@ -23,7 +23,6 @@
             --text-dark: #333333;
             --text-light: #666666;
             --bg-light: #f8f9fa;
-            --bg-dark: #1a202c;
         }
 
         body {
@@ -128,10 +127,6 @@
             bottom: -12px;
             width: 2px;
             background-color: #e2e8f0;
-        }
-
-        .dark .timeline-item:not(:last-child):after {
-            background-color: #4a5568;
         }
 
         @keyframes fadeIn {
@@ -265,12 +260,12 @@
         }
     </script>
 </head>
-<body class="bg-gray-50 text-gray-800 transition-colors duration-300">
+<body class="bg-gray-50 text-gray-800">
     <!-- Scroll progress bar -->
     <div class="progress-bar" id="scrollProgress"></div>
 
     <!-- Header Section -->
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm transition-colors duration-300">
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <a href="index.html" class="text-xl sm:text-2xl font-bold text-primary">
                 <i class="fas fa-rocket mr-2"></i>
@@ -290,22 +285,22 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative bg-primary-light dark:bg-primary/10 py-20 px-4">
+    <section class="relative bg-primary-light py-20 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="grid md:grid-cols-2 gap-10 items-center">
                 <div class="md:pr-8 animate-fade-in delay-100">
                     <span class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full mb-4 font-medium text-sm">赛道 03</span>
-                    <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-gray-900 dark:text-white">
+                    <h1 class="text-4xl sm:text-5xl font-bold mb-6 text-gray-900">
                         AI <span class="text-primary">影音生成</span>
                     </h1>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
-                        借助AI让影音创作更简单生动。围绕指定主题（如文化理念、创新故事、劳模事迹等）创作1-3分钟的视频，16:9横屏，1080P+。利用AI打造精彩的视听体验。
+                    <p class="text-lg text-gray-600 mb-8">
+                        借助AI让影音创作更简单生动。围绕指定主题（文化理念、创新故事、劳模事迹等）创作1-3分钟的视频，16:9横屏，1080P+。利用AI打造精彩的视听体验。
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#methods" class="bg-primary hover:bg-primary-dark text-white font-medium px-6 py-3 rounded-lg transition-colors shadow-md">
                             <i class="fas fa-lightbulb mr-2"></i>创作方法
                         </a>
-                        <a href="#tools" class="bg-white dark:bg-gray-800 text-primary border-2 border-primary hover:bg-primary-light dark:hover:bg-primary/10 font-medium px-6 py-3 rounded-lg transition-colors shadow-md">
+                        <a href="#tools" class="bg-white text-primary border-2 border-primary hover:bg-primary-light font-medium px-6 py-3 rounded-lg transition-colors shadow-md">
                             <i class="fas fa-tools mr-2"></i>推荐工具
                         </a>
                     </div>
@@ -315,12 +310,12 @@
                          <div class="mb-6">
                             <img src="images/track-images/ai-video.svg" alt="AI影音生成示例" class="w-full h-auto rounded-lg">
                         </div>
-                        <div class="bento-card p-6 mt-6 bg-white dark:bg-gray-800">
-                            <h2 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">作品理念</h2>
-                            <p class="text-gray-600 dark:text-gray-400 mb-4">通过生动有趣的叙事，积极倡导“学习创新、攻坚担当、活力高效、团结协作、诚信阳光”的企业价值观，鞭笞不良行为、弘扬正能量。</p>
+                        <div class="bento-card p-6 mt-6 bg-white">
+                            <h2 class="font-bold text-xl mb-2 text-gray-900">作品理念</h2>
+                            <p class="text-gray-600 mb-4">通过生动有趣的叙事，积极倡导“学习创新、攻坚担当、活力高效、团结协作、诚信阳光”的企业价值观，鞭笞不良行为、弘扬正能量。</p>
                             <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-2 sm:space-y-0">
-                                <span class="bg-primary-light dark:bg-primary/20 text-primary px-3 py-1 rounded-md text-sm font-medium">影音创作</span>
-                                <span class="text-gray-500 dark:text-gray-400 text-sm">2分钟 / 1080p</span>
+                                <span class="bg-primary-light text-primary px-3 py-1 rounded-md text-sm font-medium">影音创作</span>
+                                <span class="text-gray-500 text-sm">2分钟 / 1080p</span>
                             </div>
                         </div>
                     </div>
@@ -334,34 +329,34 @@
         <!-- Track Overview -->
         <section class="mb-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">赛道概览</h2>
+                <h2 class="text-3xl font-bold mb-4 text-gray-900">赛道概览</h2>
                 <div class="w-20 h-1 bg-primary mx-auto"></div>
             </div>
 
             <div class="bento-card p-8 animate-fade-in">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="text-center">
-                        <div class="w-12 h-12 mx-auto rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center mb-4">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-primary-light flex items-center justify-center mb-4">
                             <i class="fas fa-video text-2xl text-primary"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">赛道主题</h3>
-                        <p class="text-gray-600 dark:text-gray-400">围绕指定主题（文化理念、创新故事、劳模事迹等）创作1-3分钟的视频，16:9横屏，1080P+。</p>
+                        <h3 class="text-xl font-bold mb-4 text-gray-900">赛道主题</h3>
+                        <p class="text-gray-600">围绕指定主题（文化理念、创新故事、劳模事迹等）创作1-3分钟的视频，16:9横屏，1080P+。</p>
                     </div>
 
                     <div class="text-center">
-                        <div class="w-12 h-12 mx-auto rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center mb-4">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-primary-light flex items-center justify-center mb-4">
                             <i class="fas fa-trophy text-2xl text-primary"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">参赛目标</h3>
-                        <p class="text-gray-600 dark:text-gray-400">利用AI辅助创作出故事性强、视听效果佳、传达力强的短视频作品。</p>
+                        <h3 class="text-xl font-bold mb-4 text-gray-900">参赛目标</h3>
+                        <p class="text-gray-600">利用AI辅助创作出故事性强、视听效果佳、传达力强的短视频作品。</p>
                     </div>
 
                     <div class="text-center">
-                        <div class="w-12 h-12 mx-auto rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center mb-4">
+                        <div class="w-12 h-12 mx-auto rounded-full bg-primary-light flex items-center justify-center mb-4">
                             <i class="fas fa-check-circle text-2xl text-primary"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">提交要求</h3>
-                        <p class="text-gray-600 dark:text-gray-400">提交最终视频文件(.mp4)、AI创作过程记录和原始创作素材。</p>
+                        <h3 class="text-xl font-bold mb-4 text-gray-900">提交要求</h3>
+                        <p class="text-gray-600">提交最终视频文件(.mp4)、AI创作过程记录和原始创作素材。</p>
                     </div>
                 </div>
             </div>
@@ -370,9 +365,9 @@
         <!-- Creation Methods -->
         <section id="methods" class="mb-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">影音创作方法</h2>
+                <h2 class="text-3xl font-bold mb-4 text-gray-900">影音创作方法</h2>
                 <div class="w-20 h-1 bg-primary mx-auto mb-4"></div>
-                <p class="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                <p class="text-gray-600 max-w-3xl mx-auto">
                     以下是几种利用AI进行影音创作的有效方法，你可以选择一种或结合多种方法来完成你的参赛作品。
                 </p>
             </div>
@@ -380,17 +375,17 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-fade-in">
                 <!-- Method 1 -->
                 <div class="bento-card p-8 h-full">
-                    <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center text-primary text-xl mb-6">
+                    <div class="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center text-primary text-xl mb-6">
                         <i class="fas fa-pen-fancy"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">脚本驱动法</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6">
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">脚本驱动法</h3>
+                    <p class="text-gray-600 mb-6">
                         先用AI辅助编写详细的视频脚本，然后根据脚本使用AI生成相应画面、配音和音效，最后通过视频编辑工具将这些元素合成完整视频。
                     </p>
                     <div class="space-y-4">
-                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">操作步骤:</h4>
-                            <ol class="text-gray-600 dark:text-gray-400 list-decimal ml-5 space-y-2">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 mb-4">操作步骤:</h4>
+                            <ol class="text-gray-600 list-decimal ml-5 space-y-2">
                                 <li>确定视频主题和核心信息</li>
                                 <li>用AI生成详细分镜脚本</li>
                                 <li>根据脚本生成相应画面</li>
@@ -398,26 +393,26 @@
                                 <li>在视频编辑软件中组合所有元素</li>
                             </ol>
                         </div>
-                        <div class="bg-primary-light dark:bg-primary/10 p-4 rounded-lg">
-                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">适合人群:</h4>
-                            <p class="text-gray-600 dark:text-gray-400">有故事叙述能力但缺乏视觉创作技能的参赛者，适合制作叙事性强的宣传或培训视频。</p>
+                        <div class="bg-primary-light p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 mb-4">适合人群:</h4>
+                            <p class="text-gray-600">有故事叙述能力但缺乏视觉创作技能的参赛者，适合制作叙事性强的宣传或培训视频。</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Method 2 -->
                 <div class="bento-card p-8 h-full">
-                    <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center text-primary text-xl mb-6">
+                    <div class="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center text-primary text-xl mb-6">
                         <i class="fas fa-images"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">图像动画法</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6">
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">图像动画法</h3>
+                    <p class="text-gray-600 mb-6">
                         使用AI生成一系列静态图像，然后通过动画软件或AI动画工具为这些图像添加动态效果和转场，配上音乐和旁白创建流畅的视频。
                     </p>
                     <div class="space-y-4">
-                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">操作步骤:</h4>
-                            <ol class="text-gray-600 dark:text-gray-400 list-decimal ml-5 space-y-2">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 mb-4">操作步骤:</h4>
+                            <ol class="text-gray-600 list-decimal ml-5 space-y-2">
                                 <li>设计视频情节和关键场景</li>
                                 <li>用AI生成每个场景的静态图像</li>
                                 <li>使用AI工具为图像添加动画效果</li>
@@ -425,26 +420,26 @@
                                 <li>编辑合成最终视频</li>
                             </ol>
                         </div>
-                        <div class="bg-primary-light dark:bg-primary/10 p-4 rounded-lg">
-                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">适合人群:</h4>
-                            <p class="text-gray-600 dark:text-gray-400">有基本视频编辑经验的参赛者，适合制作概念性强的解说视频或品牌故事。</p>
+                        <div class="bg-primary-light p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 mb-4">适合人群:</h4>
+                            <p class="text-gray-600">有基本视频编辑经验的参赛者，适合制作概念性强的解说视频或品牌故事。</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Method 3 -->
                 <div class="bento-card p-8 h-full">
-                    <div class="w-12 h-12 rounded-full bg-primary-light dark:bg-primary/20 flex items-center justify-center text-primary text-xl mb-6">
+                    <div class="w-12 h-12 rounded-full bg-primary-light flex items-center justify-center text-primary text-xl mb-6">
                         <i class="fas fa-robot"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">AI一站式生成法</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-6">
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">AI一站式生成法</h3>
+                    <p class="text-gray-600 mb-6">
                         使用集成式AI视频生成平台，通过输入文本提示和参考素材，让AI直接生成完整的视频内容，之后进行必要的人工调整和优化。
                     </p>
                     <div class="space-y-4">
-                        <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">操作步骤:</h4>
-                            <ol class="text-gray-600 dark:text-gray-400 list-decimal ml-5 space-y-2">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 mb-4">操作步骤:</h4>
+                            <ol class="text-gray-600 list-decimal ml-5 space-y-2">
                                 <li>选择合适的AI视频生成平台</li>
                                 <li>编写详细的视频描述和要求</li>
                                 <li>上传参考素材或风格示例</li>
@@ -452,9 +447,9 @@
                                 <li>对生成结果进行必要的编辑和优化</li>
                             </ol>
                         </div>
-                        <div class="bg-primary-light dark:bg-primary/10 p-4 rounded-lg">
-                            <h4 class="font-semibold text-gray-900 dark:text-white mb-4">适合人群:</h4>
-                            <p class="text-gray-600 dark:text-gray-400">视频创作经验较少但想尝试影音制作的参赛者，适合制作简短的企业宣传片或社交媒体短视频。</p>
+                        <div class="bg-primary-light p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-900 mb-4">适合人群:</h4>
+                            <p class="text-gray-600">视频创作经验较少但想尝试影音制作的参赛者，适合制作简短的企业宣传片或社交媒体短视频。</p>
                         </div>
                     </div>
                 </div>
@@ -464,9 +459,9 @@
         <!-- Recommended Tools -->
         <section id="tools" class="mb-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">推荐创作工具</h2>
+                <h2 class="text-3xl font-bold mb-4 text-gray-900">推荐创作工具</h2>
                 <div class="w-20 h-1 bg-primary mx-auto mb-4"></div>
-                <p class="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                <p class="text-gray-600 max-w-3xl mx-auto">
                     以下是一些能够帮助你高效完成影音创作的AI工具，它们各有特点，可以根据自己的需求选择使用。
                 </p>
             </div>
@@ -477,34 +472,34 @@
                     <div class="p-6 flex-grow">
                         <div class="flex items-center mb-4">
                             <img src="https://placehold.co/40x40/6B3CE8/FFFFFF?text=RW" alt="Runway Logo" class="w-10 h-10 rounded object-cover mr-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Runway</h3>
+                            <h3 class="text-xl font-bold text-gray-900">Runway</h3>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
-                            领先的AI创意工具套件，提供强大的Gen-4文本到视频、图像到视频生成，以及视频编辑、特效添加等多种功能。
+                        <p class="text-gray-600 mb-4 text-sm">
+                            leading AI creative tool kit, providing powerful Gen-4 text to video, image to video generation, and video editing, effects addition, etc.
                         </p>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">高质量视频生成</span>
+                                <span class="text-gray-600">High quality video generation</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">多模态输入支持</span>
+                                <span class="text-gray-600">Multi-modal input support</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">丰富的创意编辑工具</span>
+                                <span class="text-gray-600">Rich creative editing tools</span>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                    <div class="bg-gray-50 p-4 mt-auto">
                         <div class="flex justify-between items-center mb-1">
-                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <h4 class="font-semibold text-gray-900 text-sm">适用场景</h4>
                             <span class="text-primary">★★★★★</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">创意短片、广告片、概念视频、特效制作</p>
+                        <p class="text-gray-600 text-sm">creative short film, ad film, concept video, effect making</p>
                          <div class="mt-2">
-                            <span class="inline-block bg-primary-light dark:bg-primary/20 text-primary text-sm font-medium px-2 py-0.5 rounded-full">付费工具</span>
+                            <span class="inline-block bg-primary-light text-primary text-sm font-medium px-2 py-0.5 rounded-full">付费工具</span>
                         </div>
                     </div>
                 </div>
@@ -514,34 +509,34 @@
                     <div class="p-6 flex-grow">
                         <div class="flex items-center mb-4">
                            <img src="https://placehold.co/40x40/FF6B6B/FFFFFF?text=JM" alt="即梦 Logo" class="w-10 h-10 rounded object-cover mr-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">即梦</h3>
+                            <h3 class="text-xl font-bold text-gray-900">即梦</h3>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                        <p class="text-gray-600 mb-4 text-sm">
                             字节跳动旗下AI创作平台，提供包括文生图、图生图、文生视频在内的多模态生成能力，风格多样。
                         </p>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">集成图像和视频生成</span>
+                                <span class="text-gray-600">集成图像和视频生成</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">丰富的风格模型</span>
+                                <span class="text-gray-600">丰富的风格模型</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">支持中文交互</span>
+                                <span class="text-gray-600">支持中文交互</span>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                    <div class="bg-gray-50 p-4 mt-auto">
                         <div class="flex justify-between items-center mb-1">
-                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <h4 class="font-semibold text-gray-900 text-sm">适用场景</h4>
                             <span class="text-primary">★★★★☆</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">创意视觉、短视频片段、概念艺术生成</p>
+                        <p class="text-gray-600 text-sm">创意视觉、短视频片段、概念艺术生成</p>
                          <div class="mt-2">
-                            <span class="inline-block bg-primary-light dark:bg-primary/20 text-primary text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
+                            <span class="inline-block bg-primary-light text-primary text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
                         </div>
                     </div>
                 </div>
@@ -551,34 +546,34 @@
                     <div class="p-6 flex-grow">
                         <div class="flex items-center mb-4">
                             <img src="https://placehold.co/40x40/4ECDC4/FFFFFF?text=KL" alt="可灵 Logo" class="w-10 h-10 rounded object-cover mr-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">可灵</h3>
+                            <h3 class="text-xl font-bold text-gray-900">可灵</h3>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                        <p class="text-gray-600 mb-4 text-sm">
                             快手推出的AI视频生成大模型，能够生成长达2分钟、1080p分辨率、30fps的高质量视频，模拟真实物理世界。
                         </p>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">长视频生成能力 (2分钟)</span>
+                                <span class="text-gray-600">长视频生成能力 (2分钟)</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">高分辨率和帧率</span>
+                                <span class="text-gray-600">高分辨率和帧率</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">模拟物理运动</span>
+                                <span class="text-gray-600">模拟物理运动</span>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                    <div class="bg-gray-50 p-4 mt-auto">
                         <div class="flex justify-between items-center mb-1">
-                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <h4 class="font-semibold text-gray-900 text-sm">适用场景</h4>
                             <span class="text-primary">★★★★☆</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">短片制作、叙事视频、复杂动态场景</p>
+                        <p class="text-gray-600 text-sm">短片制作、叙事视频、复杂动态场景</p>
                          <div class="mt-2">
-                            <span class="inline-block bg-primary-light dark:bg-primary/20 text-primary text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
+                            <span class="inline-block bg-primary-light text-primary text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
                         </div>
                     </div>
                 </div>
@@ -588,34 +583,34 @@
                     <div class="p-6 flex-grow">
                         <div class="flex items-center mb-4">
                             <img src="https://placehold.co/40x40/6A0DAD/FFFFFF?text=MM" alt="海螺Minimax Logo" class="w-10 h-10 rounded object-cover mr-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">海螺Minimax</h3>
+                            <h3 class="text-xl font-bold text-gray-900">海螺Minimax</h3>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                        <p class="text-gray-600 mb-4 text-sm">
                             多模态AI平台，提供文本、语音、视觉等多种AI能力，可用于视频脚本创作、AI语音合成、图像素材生成等辅助环节。
                         </p>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">多模态能力集成</span>
+                                <span class="text-gray-600">多模态能力集成</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">高质量AI语音合成</span>
+                                <span class="text-gray-600">高质量AI语音合成</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">辅助视频创意构思</span>
+                                <span class="text-gray-600">辅助视频创意构思</span>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                    <div class="bg-gray-50 p-4 mt-auto">
                         <div class="flex justify-between items-center mb-1">
-                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <h4 class="font-semibold text-gray-900 text-sm">适用场景</h4>
                             <span class="text-primary">★★★★☆</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">视频脚本创作、配音生成、素材获取</p>
+                        <p class="text-gray-600 text-sm">视频脚本创作、配音生成、素材获取</p>
                          <div class="mt-2">
-                            <span class="inline-block bg-primary-light dark:bg-primary/20 text-primary text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
+                            <span class="inline-block bg-primary-light text-primary text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
                         </div>
                     </div>
                 </div>
@@ -625,34 +620,34 @@
                     <div class="p-6 flex-grow">
                         <div class="flex items-center mb-4">
                             <img src="https://placehold.co/40x40/20B2AA/FFFFFF?text=VD" alt="Vidu Logo" class="w-10 h-10 rounded object-cover mr-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Vidu</h3>
+                            <h3 class="text-xl font-bold text-gray-900">Vidu</h3>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                        <p class="text-gray-600 mb-4 text-sm">
                             由生数科技与清华大学联合推出的视频大模型，支持一键生成长达16秒、1080p的高清视频，具有高时空一致性。
                         </p>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">高时空一致性</span>
+                                <span class="text-gray-600">高时空一致性</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">理解复杂场景和动态</span>
+                                <span class="text-gray-600">理解复杂场景和动态</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">支持多种风格生成</span>
+                                <span class="text-gray-600">支持多种风格生成</span>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                    <div class="bg-gray-50 p-4 mt-auto">
                         <div class="flex justify-between items-center mb-1">
-                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <h4 class="font-semibold text-gray-900 text-sm">适用场景</h4>
                             <span class="text-primary">★★★★★</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">电影级短片、动态镜头模拟、复杂场景生成</p>
+                        <p class="text-gray-600 text-sm">电影级短片、动态镜头模拟、复杂场景生成</p>
                          <div class="mt-2">
-                            <span class="inline-block bg-primary-light dark:bg-primary/20 text-primary text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
+                            <span class="inline-block bg-primary-light text-primary text-sm font-medium px-2 py-0.5 rounded-full">免费版/付费版</span>
                         </div>
                     </div>
                 </div>
@@ -662,34 +657,34 @@
                     <div class="p-6 flex-grow">
                         <div class="flex items-center mb-4">
                              <img src="https://placehold.co/40x40/FF9900/FFFFFF?text=SR" alt="Sora Logo" class="w-10 h-10 rounded object-cover mr-4">
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-white">Sora</h3>
+                            <h3 class="text-xl font-bold text-gray-900">Sora</h3>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4 text-sm">
+                        <p class="text-gray-600 mb-4 text-sm">
                             OpenAI开发的文生视频大模型，能够生成长达一分钟的高保真视频，理解物理世界和复杂指令，备受期待。
                         </p>
                         <div class="space-y-2 text-sm">
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">超高写实度和细节</span>
+                                <span class="text-gray-600">超高写实度和细节</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">长视频生成 (1分钟)</span>
+                                <span class="text-gray-600">长视频生成 (1分钟)</span>
                             </div>
                             <div class="flex items-center">
                                 <i class="fas fa-check text-green-500 mr-2"></i>
-                                <span class="text-gray-600 dark:text-gray-400">理解复杂场景交互</span>
+                                <span class="text-gray-600">理解复杂场景交互</span>
                             </div>
                         </div>
                     </div>
-                    <div class="bg-gray-50 dark:bg-gray-800 p-4 mt-auto">
+                    <div class="bg-gray-50 p-4 mt-auto">
                         <div class="flex justify-between items-center mb-1">
-                            <h4 class="font-semibold text-gray-900 dark:text-white text-sm">适用场景</h4>
+                            <h4 class="font-semibold text-gray-900 text-sm">适用场景</h4>
                             <span class="text-primary">★★★★★</span>
                         </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm">电影预告片、写实模拟、复杂叙事视频</p>
+                        <p class="text-gray-600 text-sm">电影预告片、写实模拟、复杂叙事视频</p>
                          <div class="mt-2">
-                            <span class="inline-block bg-primary-light dark:bg-primary/20 text-primary text-sm font-medium px-2 py-0.5 rounded-full">付费工具</span>
+                            <span class="inline-block bg-primary-light text-primary text-sm font-medium px-2 py-0.5 rounded-full">付费工具</span>
                         </div>
                     </div>
                 </div>
@@ -699,9 +694,9 @@
         <!-- Video Examples Section -->
         <section id="examples" class="mb-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">AI视频示例</h2>
+                <h2 class="text-3xl font-bold mb-4 text-gray-900">AI视频示例</h2>
                 <div class="w-20 h-1 bg-primary mx-auto mb-4"></div>
-                <p class="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                <p class="text-gray-600 max-w-3xl mx-auto">
                     探索AI视频厂商的最新技术，了解AI在叙事、视觉和创意方面的最新突破，从中获取灵感。
                 </p>
             </div>
@@ -719,7 +714,7 @@
             </div>
 
             <div class="mt-10 text-center">
-                <p class="text-gray-600 dark:text-gray-400 mb-6">
+                <p class="text-gray-600 mb-6">
                     Gen4 Introduction Video by Runway
                 </p>
                 <a href="#tools" class="text-primary hover:text-primary-dark font-medium">
@@ -732,93 +727,93 @@
         <!-- Tips for Success -->
         <section id="tips" class="mb-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">影音生成小贴士</h2>
+                <h2 class="text-3xl font-bold mb-4 text-gray-900">影音生成小贴士</h2>
                 <div class="w-20 h-1 bg-primary mx-auto"></div>
             </div>
 
             <div class="bento-card p-8 animate-fade-in">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div>
-                        <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
+                        <h3 class="text-xl font-bold mb-6 text-gray-900 flex items-center">
                             <i class="fas fa-check-circle text-primary mr-3"></i>该做的事
                         </h3>
                         <ul class="space-y-4">
                             <li class="flex items-start">
                                 <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">先规划故事和结构</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">在使用AI工具之前，先明确你想讲述的故事和视频结构。好的叙事是优秀视频的基础。</p>
+                                    <h4 class="font-semibold text-gray-900">先规划故事和结构</h4>
+                                    <p class="text-gray-600">在使用AI工具之前，先明确你想讲述的故事和视频结构。好的叙事是优秀视频的基础。</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">注重视听节奏</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">控制好画面切换、音乐和旁白的节奏，这对观看体验至关重要。AI生成内容常需要调整以优化节奏。</p>
+                                    <h4 class="font-semibold text-gray-900">注重视听节奏</h4>
+                                    <p class="text-gray-600">控制好画面切换、音乐和旁白的节奏，这对观看体验至关重要。AI生成内容常需要调整以优化节奏。</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">结合真实素材</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">将AI生成的内容与真实拍摄的素材结合，能让作品更有真实感和说服力。</p>
+                                    <h4 class="font-semibold text-gray-900">结合真实素材</h4>
+                                    <p class="text-gray-600">将AI生成的内容与真实拍摄的素材结合，能让作品更有真实感和说服力。</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">保持一致的视觉风格</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">确保整个视频的色调、风格和品牌元素保持一致，这样作品才会显得专业有凝聚力。</p>
+                                    <h4 class="font-semibold text-gray-900">保持一致的视觉风格</h4>
+                                    <p class="text-gray-600">确保整个视频的色调、风格和品牌元素保持一致，这样作品才会显得专业有凝聚力。</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">注重音频质量</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">好的音频体验同样重要，确保AI生成的配音清晰自然，音乐与内容情感相匹配。</p>
+                                    <h4 class="font-semibold text-gray-900">注重音频质量</h4>
+                                    <p class="text-gray-600">好的音频体验同样重要，确保AI生成的配音清晰自然，音乐与内容情感相匹配。</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
 
                     <div>
-                        <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-white flex items-center">
+                        <h3 class="text-xl font-bold mb-6 text-gray-900 flex items-center">
                             <i class="fas fa-times-circle text-red-500 mr-3"></i>避免的事
                         </h3>
                         <ul class="space-y-4">
                             <li class="flex items-start">
                                 <i class="fas fa-times text-red-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">过度依赖AI</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">不要完全依赖AI生成所有内容，这可能导致作品缺乏个性和创意。人工干预和创意指导仍然必不可少。</p>
+                                    <h4 class="font-semibold text-gray-900">过度依赖AI</h4>
+                                    <p class="text-gray-600">不要完全依赖AI生成所有内容，这可能导致作品缺乏个性和创意。人工干预和创意指导仍然必不可少。</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-times text-red-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">内容过于复杂冗长</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">保持视频简洁明了，避免堆砌过多信息或画面效果，这会分散观众注意力。</p>
+                                    <h4 class="font-semibold text-gray-900">内容过于复杂冗长</h4>
+                                    <p class="text-gray-600">保持视频简洁明了，避免堆砌过多信息或画面效果，这会分散观众注意力。</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-times text-red-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">忽略目标受众</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">始终牢记你的目标观众是谁，以及他们的偏好和期望。不要为了使用AI而忽略受众需求。</p>
+                                    <h4 class="font-semibold text-gray-900">忽略目标受众</h4>
+                                    <p class="text-gray-600">始终牢记你的目标观众是谁，以及他们的偏好和期望。不要为了使用AI而忽略受众需求。</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-times text-red-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">使用明显不自然的AI配音</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">低质量的AI配音会严重影响观看体验，宁可选择质量更好的工具或请真人配音。</p>
+                                    <h4 class="font-semibold text-gray-900">使用明显不自然的AI配音</h4>
+                                    <p class="text-gray-600">低质量的AI配音会严重影响观看体验，宁可选择质量更好的工具或请真人配音。</p>
                                 </div>
                             </li>
                             <li class="flex items-start">
                                 <i class="fas fa-times text-red-500 mt-1 mr-3"></i>
                                 <div>
-                                    <h4 class="font-semibold text-gray-900 dark:text-white">忽略版权问题</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">即使是AI生成的内容，也要注意潜在的版权问题，特别是生成的音乐或参考现有作品的画面。</p>
+                                    <h4 class="font-semibold text-gray-900">忽略版权问题</h4>
+                                    <p class="text-gray-600">即使是AI生成的内容，也要注意潜在的版权问题，特别是生成的音乐或参考现有作品的画面。</p>
                                 </div>
                             </li>
                         </ul>
@@ -830,22 +825,22 @@
         <!-- Submission Guidelines -->
         <section id="submission" class="mb-20">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">作品提交指南</h2>
+                <h2 class="text-3xl font-bold mb-4 text-gray-900">作品提交指南</h2>
                 <div class="w-20 h-1 bg-primary mx-auto"></div>
             </div>
 
             <div class="bento-card p-8 animate-fade-in">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                     <div>
-                        <h3 class="text-lg font-bold mb-6 text-gray-900 dark:text-white">提交要求</h3>
+                        <h3 class="text-lg font-bold mb-6 text-gray-900">提交要求</h3>
 
                         <div class="space-y-6">
-                            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-                                <h4 class="font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
                                     <i class="fas fa-file-video text-primary mr-3"></i>
                                     文件格式
                                 </h4>
-                                <ul class="text-gray-600 dark:text-gray-400 space-y-2 ml-8 list-disc text-base">
+                                <ul class="text-gray-600 space-y-2 ml-8 list-disc text-base">
                                     <li>主视频文件: MP4格式，H.264编码</li>
                                     <li>分辨率: 1920x1080 (1080p) 或更高</li>
                                     <li>帧率: 24fps或30fps</li>
@@ -854,12 +849,12 @@
                                 </ul>
                             </div>
 
-                            <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-                                <h4 class="font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
                                     <i class="fas fa-list-ol text-primary mr-3"></i>
                                     内容要求
                                 </h4>
-                                <ul class="text-gray-600 dark:text-gray-400 space-y-2 ml-8 list-disc text-base">
+                                <ul class="text-gray-600 space-y-2 ml-8 list-disc text-base">
                                     <li>视频长度: 1-3分钟</li>
                                     <li>内容必须与选定主题相关</li>
                                     <li>需包含视频标题和创作者名字</li>
@@ -868,15 +863,15 @@
                                 </ul>
                             </div>
 
-                            <div class="bg-primary-light dark:bg-primary/10 p-6 rounded-lg">
-                                <h4 class="font-semibold text-gray-900 dark:text-white mb-3 flex items-center">
+                            <div class="bg-primary-light p-6 rounded-lg">
+                                <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
                                     <i class="fas fa-lightbulb text-primary mr-3"></i>
                                     AI创作记录
                                 </h4>
-                                <p class="text-gray-700 dark:text-gray-300 mb-3">
+                                <p class="text-gray-700 mb-3">
                                     必须附上"AI创作生成记录"，包含以下内容：
                                 </p>
-                                <ul class="text-gray-600 dark:text-gray-400 space-y-2 ml-8 list-disc text-base">
+                                <ul class="text-gray-600 space-y-2 ml-8 list-disc text-base">
                                     <li>使用的AI工具名称和版本</li>
                                     <li>关键提示词示例或脚本片段</li>
                                     <li>AI与人工创作的比例说明</li>
@@ -889,7 +884,7 @@
                     </div>
 
                     <div>
-                        <h3 class="text-xl font-bold mb-6 text-gray-900 dark:text-white">提交流程</h3>
+                        <h3 class="text-xl font-bold mb-6 text-gray-900">提交流程</h3>
 
                         <div class="space-y-6">
                             <div class="flex">
@@ -897,54 +892,54 @@
                                     1
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="font-semibold text-lg text-gray-900 dark:text-white mb-2">准备文件</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">
+                                    <h4 class="font-semibold text-lg text-gray-900 mb-2">准备文件</h4>
+                                    <p class="text-gray-600">
                                         准备好视频文件(.mp4)，AI创作记录文档(.pdf或.docx)，和视频简介(100字以内)。视频文件较大可使用在线网盘分享。
                                     </p>
                                 </div>
                             </div>
 
-                            <div class="border-l-2 border-gray-200 dark:border-gray-700 ml-6 pl-6 py-2"></div>
+                            <div class="border-l-2 border-gray-200 ml-6 pl-6 py-2"></div>
 
                             <div class="flex">
                                 <div class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">
                                     2
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="font-semibold text-lg text-gray-900 dark:text-white mb-2">发送邮件</h4>
-                                    <p class="text-gray-600 dark:text-gray-400 mb-3">
-                                        发送邮件至 <code class="bg-gray-200 dark:bg-gray-700 px-2 py-0.5 rounded">gh@egocvs.com</code>，主题格式为：
+                                    <h4 class="font-semibold text-lg text-gray-900 mb-2">发送邮件</h4>
+                                    <p class="text-gray-600 mb-3">
+                                        发送邮件至 <code class="bg-gray-200 px-2 py-0.5 rounded">gh@egocvs.com</code>，主题格式为：
                                     </p>
-                                    <div class="bg-gray-200 dark:bg-gray-700 p-3 rounded text-gray-700 dark:text-gray-300 text-sm whitespace-normal mb-3">
+                                    <div class="bg-gray-200 p-3 rounded text-gray-700 text-sm whitespace-normal mb-3">
                                         【2025年度"最美逸刻人"主题系列活动】+部门/门店+姓名+作品标题
                                     </div>
-                                    <p class="text-gray-600 dark:text-gray-400">
+                                    <p class="text-gray-600">
                                         邮件正文中请留下你的联系手机号，并附上视频简介和(如有)网盘链接。
                                     </p>
                                 </div>
                             </div>
 
-                            <div class="border-l-2 border-gray-200 dark:border-gray-700 ml-6 pl-6 py-2"></div>
+                            <div class="border-l-2 border-gray-200 ml-6 pl-6 py-2"></div>
 
                             <div class="flex">
                                 <div class="flex-shrink-0 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center text-xl font-bold">
                                     3
                                 </div>
                                 <div class="ml-4">
-                                    <h4 class="font-semibold text-lg text-gray-900 dark:text-white mb-2">确认提交</h4>
-                                    <p class="text-gray-600 dark:text-gray-400">
+                                    <h4 class="font-semibold text-lg text-gray-900 mb-2">确认提交</h4>
+                                    <p class="text-gray-600">
                                         提交后，你将在1-3个工作日内收到确认邮件。如果没有收到确认，请再次联系工会确认提交状态。
                                     </p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="bg-red-50 dark:bg-red-900/10 p-6 rounded-lg mt-10">
+                        <div class="bg-red-50 p-6 rounded-lg mt-10">
                             <div class="flex items-start">
                                 <i class="fas fa-exclamation-triangle text-red-500 text-2xl mr-4 mt-1"></i>
                                 <div>
-                                    <h4 class="font-semibold text-lg text-gray-900 dark:text-white mb-2">特别注意</h4>
-                                    <p class="text-gray-700 dark:text-gray-300">
+                                    <h4 class="font-semibold text-lg text-gray-900 mb-2">特别注意</h4>
+                                    <p class="text-gray-700">
                                         由于视频文件一般较大，建议提前至少3天开始上传和提交过程，以防网络问题导致延误。确保在 <span class="font-bold text-red-500">2025年5月30日</span> 前完成所有提交步骤。
                                     </p>
                                 </div>
@@ -958,16 +953,16 @@
         <!-- Call to Action Section -->
         <section class="text-center animate-fade-in">
             <div class="bento-card p-10 md:p-16">
-                <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
+                <h2 class="text-3xl font-bold mb-6 text-gray-900">
                     准备好开始你的AI影音创作了吗？
                 </h2>
 
-                <p class="text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">
+                <p class="text-gray-600 mb-10 max-w-2xl mx-auto">
                     利用AI技术，你可以创造出专业级别的视频内容，展现你的创意才华。无论你是视频制作新手还是有经验的创作者，AI都能帮助你提升创作效率和作品质量。
                 </p>
 
                 <div class="flex flex-wrap justify-center gap-4">
-                    <a href="index.html#tracks" class="bg-white border-2 border-primary text-primary hover:bg-primary-light dark:bg-gray-800 dark:hover:bg-primary/10 font-bold py-3 px-8 rounded-lg shadow-md transition-colors">
+                    <a href="index.html#tracks" class="bg-white border-2 border-primary text-primary hover:bg-primary-light font-bold py-3 px-8 rounded-lg shadow-md transition-colors">
                         <i class="fas fa-arrow-left mr-2"></i> 返回赛道概览
                     </a>
 
@@ -980,22 +975,22 @@
     </main>
 
     <!-- Footer Section -->
-    <footer class="mt-16 py-12 border-t border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+    <footer class="mt-16 py-12 border-t border-gray-200 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
                 <div>
-                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">逸刻AI应用创新赛</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                    <h3 class="text-lg font-bold mb-4 text-gray-900">逸刻AI应用创新赛</h3>
+                    <p class="text-gray-600 mb-4">
                         2025年度"最美逸刻人"主题系列活动
                     </p>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                    <p class="text-gray-600 mb-4">
                         <i class="fas fa-envelope mr-2 text-primary"></i> gh@egocvs.com
                     </p>
                 </div>
 
                 <div>
-                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">比赛赛道</h3>
-                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                    <h3 class="text-lg font-bold mb-4 text-gray-900">比赛赛道</h3>
+                    <ul class="space-y-2 text-gray-600">
                         <li><a href="track1.html" class="hover:text-primary">AI 内容创作</a></li>
                         <li><a href="track2.html" class="hover:text-primary">AI 视觉设计</a></li>
                         <li><a href="track3.html" class="text-primary font-medium">AI 影音生成</a></li>
@@ -1004,8 +999,8 @@
                 </div>
 
                 <div>
-                    <h3 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">影音创作资源</h3>
-                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                    <h3 class="text-lg font-bold mb-4 text-gray-900">影音创作资源</h3>
+                    <ul class="space-y-2 text-gray-600">
                         <li><a href="#methods" class="hover:text-primary">创作方法</a></li>
                         <li><a href="#tools" class="hover:text-primary">推荐工具</a></li>
                         <li><a href="#examples" class="hover:text-primary">视频案例</a></li>
@@ -1014,7 +1009,7 @@
                 </div>
             </div>
 
-            <div class="mt-10 pt-6 border-t border-gray-200 dark:border-gray-700 text-center text-sm text-gray-500 dark:text-gray-400">
+            <div class="mt-10 pt-6 border-t border-gray-200 text-center text-sm text-gray-500">
                 <p>作者: AtelierQin</p>
                 <p class="mt-1">© 2025上海逸刻新零售网络科技有限公司工会委员会. All Rights Reserved.</p>
             </div>
@@ -1077,15 +1072,52 @@
             const video = container.querySelector('video');
             const playButton = container.querySelector('.video-play-button');
             
+            // Initially hide play button if video is playing or controls are visible
+            if (!video.paused || video.controls) {
+                playButton.classList.add('hidden');
+            } else {
+                 playButton.classList.remove('hidden');
+            }
+
             video.addEventListener('play', () => playButton.classList.add('hidden'));
             video.addEventListener('pause', () => playButton.classList.remove('hidden'));
             
+            // Keep play button hidden if controls are shown
+            video.addEventListener('enterpictureinpicture', () => playButton.classList.add('hidden'));
+            video.addEventListener('leavepictureinpicture', () => { if(video.paused) playButton.classList.remove('hidden'); });
+
+
+            // Hide overlay initially, show on hover if video paused
+            const overlay = container.querySelector('.video-overlay'); // Assuming overlay exists
+            if (overlay) {
+                overlay.style.opacity = '0'; // Ensure hidden initially
+            }
+
             container.addEventListener('mouseenter', () => {
-                if (video.paused) playButton.classList.remove('hidden');
+                 if (overlay) {
+                     overlay.style.opacity = '1';
+                 }
+                 // Show play button on hover only if paused
+                 if (video.paused && !video.controls) { // Also check controls
+                     playButton.classList.remove('hidden');
+                 }
             });
             container.addEventListener('mouseleave', () => {
-                if (!video.paused) playButton.classList.add('hidden');
+                if (overlay) {
+                     overlay.style.opacity = '0';
+                 }
+                 // Hide play button on mouse leave unless video is paused AND controls are hidden
+                 if (!video.paused || video.controls) {
+                     playButton.classList.add('hidden');
+                 } else {
+                      playButton.classList.remove('hidden'); // Keep visible if paused and controls hidden
+                 }
             });
+            
+            // Additional check for controls visibility changes
+            // Note: There's no standard event for controls visibility change.
+            // This part might need more sophisticated handling depending on browser behavior.
+            // For simplicity, we'll rely on play/pause events mostly.
         });
     });
     </script>
